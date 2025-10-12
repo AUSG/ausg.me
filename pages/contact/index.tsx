@@ -66,7 +66,7 @@ const Contact = () => {
             </div>
           )}
           <iframe
-            src="https://tally.so/embed/w447O5?alignLeft=1&hideTitle=1&transparentBackground=1"
+            src="https://tally.so/embed/wdOj8V?alignLeft=1&hideTitle=1&transparentBackground=1"
             width="100%"
             height="480"
             title="AUSG로 문의하기"
