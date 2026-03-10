@@ -6,7 +6,8 @@
       "name_en": "Hyeonjin Han",
       "photo": "hyeonjin.jpg",
       "short_bio": "멋진 세상, 함께 만들어볼까요?",
-      "github_username": "progresshans"
+      "github_username": "progresshans",
+      "role": "Regulator"
     },
     {
       "year": "9th",
@@ -15,7 +16,8 @@
       "photo": "inho.jpg",
       "short_bio": "하루하루 재밌게!",
       "linkedin_username": "inhovation7",
-      "github_username": "JangInho"
+      "github_username": "JangInho",
+      "role": "Regulator"
     },
     {
       "year": "9th",
@@ -24,7 +26,8 @@
       "photo": "heejae.jpg",
       "short_bio": "도전하는 삶을 살자! 🚀",
       "linkedin_username": "1026hz",
-      "github_username": "1026hz"
+      "github_username": "1026hz",
+      "role": "Regulator"
     },
     {
       "year": "9th",
@@ -43,7 +46,8 @@
       "short_bio": "많은 사람이 겪고 있는 문제를 풀어가는 개발자가 되고 싶습니다",
       "linkedin_username": "americano212",
       "github_username": "americano212",
-      "homepage_url": "https://www.dongjun.me/"
+      "homepage_url": "https://www.dongjun.me/",
+      "role": "Regulator"
     },
     {
       "year": "9th",
@@ -79,7 +83,8 @@
       "name_en": "Geon Lee",
       "photo": "geon.jpg",
       "short_bio": "개발자가 개발에 집중하도록 하는 엔지니어",
-      "github_username": "gun9212"
+      "github_username": "gun9212",
+      "role": "Regulator"
     },
     {
       "year": "9th",
@@ -87,7 +92,8 @@
       "name_en": "JongIn Chung",
       "photo": "chungjongin.jpg",
       "short_bio": "행복하게 개발하고 싶은 개발자",
-      "github_username": "https://github.com/dddingzong"
+      "github_username": "https://github.com/dddingzong",
+      "role": "Regulator"
     },
     {
       "year": "9th",
@@ -113,7 +119,8 @@
       "name_ko": "김시은",
       "name_en": "Sieun Kim",
       "photo": "sieun.jpg",
-      "short_bio": "거대한 참나무도 시작은 도토리였다 🌳"
+      "short_bio": "거대한 참나무도 시작은 도토리였다 🌳",
+      "role": "Regulator"
     },
     {
       "year": "9th",
@@ -139,9 +146,10 @@
       "name_ko": "가동식",
       "name_en": "Dongsik Ga",
       "photo": "gadongsik.jpeg",
-      "short_bio": "지식을 나누며 함께 성장하기 📚",
+      "short_bio": "어제보다 더 나은 오늘의 내가 되자 📚",
       "linkedin_username": "eple0329",
-      "github_username": "eple0329"
+      "github_username": "eple0329",
+      "role": "Regulator"
     },
     {
       "year": "9th",
@@ -159,7 +167,8 @@
       "photo": "taekyu.jpg",
       "short_bio": "늦었다고 생각할때는 진짜늦으니까 지금해보자!",
       "github_username": "TaekyuKo",
-      "homepage_url": "https://velog.io/@taekyu_"
+      "homepage_url": "https://velog.io/@taekyu_",
+      "role": "Regulator"
     },
     {
       "year": "9th",
@@ -178,7 +187,8 @@
       "short_bio": "즐거움이 향하는 곳으로, 어디든 물 따라 바람 따라 🌊",
       "linkedin_username": "coldot",
       "github_username": "Coldot",
-      "homepage_url": "https://coldot.kr/"
+      "homepage_url": "https://coldot.kr/",
+      "role": "Regulator"
     },
     {
       "year": "9th",
@@ -188,7 +198,8 @@
       "short_bio": "멋진 어른이 되는 법을 코딩하는 중",
       "linkedin_username": "hyunsook-ji",
       "github_username": "s0ooo0k",
-      "homepage_url": "https://izzm2.tistory.com/"
+      "homepage_url": "https://izzm2.tistory.com/",
+      "role": "Regulator"
     },
     {
       "year": "9th",
@@ -198,7 +209,8 @@
       "short_bio": "기술을 통해 더 나은 세상을 만들기 위해 구르는중 🐤",
       "linkedin_username": "daehyun-kim-b6336b291",
       "github_username": "Daehyun-Bigbread",
-      "homepage_url": "https://daehyun-bigbread.tistory.com/"
+      "homepage_url": "https://daehyun-bigbread.tistory.com/",
+      "role": "Regulator"
     },
     {
       "year": "9th",
@@ -207,7 +219,8 @@
       "photo": "YoonjiHeo.jpg",
       "short_bio": "멋쟁이 엔지니어",
       "linkedin_username": "yoonji-heo",
-      "github_username": "myeunee"
+      "github_username": "myeunee",
+      "role": "Regulator"
     },
     {
       "year": "9th",
@@ -241,7 +254,8 @@
       "photo": "taekyung.jpg",
       "short_bio": "모든 일에는 이유가 있다!",
       "linkedin_username": "tph00300",
-      "github_username": "tph00300"
+      "github_username": "tph00300",
+      "role": "Organizer"
     },
     {
       "year": "9th",
@@ -288,8 +302,7 @@
       "short_bio": "'고민할 시간에 일단 해보기'중독ㅎㅁㅎ",
       "linkedin_username": "sujin-kim-080875316",
       "github_username": "cowboysj",
-      "homepage_url": "https://cowboysj.tistory.com/",
-      "role": "Regulator"
+      "homepage_url": "https://cowboysj.tistory.com/"
     },
     {
       "year": "8th",
@@ -308,8 +321,7 @@
       "photo": "EunjiLee.jpg",
       "short_bio": "Make it all Sage with Bedrock",
       "github_username": "maeilej",
-      "linkedin_username": "eunji-lee-448338281",
-      "role": "Regulator"
+      "linkedin_username": "eunji-lee-448338281"
     },
     {
       "year": "8th",
@@ -336,8 +348,7 @@
       "photo": "kill.jpg",
       "short_bio": "노는게 제일좋아~",
       "github_username": "killsanghyuck",
-      "linkedin_username": "gillsang",
-      "role": "Regulator"
+      "linkedin_username": "gillsang"
     },
     {
       "year": "8th",
@@ -347,8 +358,7 @@
       "short_bio": "꾸준 그 잡채",
       "linkedin_username": "dohun-kim-8b0953308",
       "github_username": "kdhhuns2000",
-      "homepage_url": "https://velog.io/@kdhhuns2000/",
-      "role": "Regulator"
+      "homepage_url": "https://velog.io/@kdhhuns2000/"
     },
     {
       "year": "8th",
@@ -358,8 +368,7 @@
       "short_bio": "Everything is learnable!",
       "github_username": "mushroom1324",
       "linkedin_username": "chanhyeok-seo-8650552b7",
-      "homepage_url": "https://popcorn-overflow.tistory.com/",
-      "role": "Regulator"
+      "homepage_url": "https://popcorn-overflow.tistory.com/"
     },
     {
       "year": "8th",
@@ -368,8 +377,7 @@
       "photo": "jinseong.jpg",
       "short_bio": "끊임없이 우물밖을 탐구하는 개구리",
       "github_username": "kkardd",
-      "homepage_url": "https://kkardd.github.io",
-      "role": "Regulator"
+      "homepage_url": "https://kkardd.github.io"
     },
     {
       "year": "8th",
@@ -378,8 +386,7 @@
       "photo": "hyunje.jpg",
       "short_bio": "기쁨은 나누면 배가 돼요 🤗",
       "github_username": "leehjhjhj",
-      "homepage_url": "https://imasimdi.dev",
-      "role": "Regulator"
+      "homepage_url": "https://imasimdi.dev"
     },
     {
       "year": "8th",
@@ -387,8 +394,7 @@
       "name_en": "Gayeong Park",
       "photo": "gayeong_2.jpg",
       "short_bio": "다양하게 도전해 보는 것을 좋아합니다.",
-      "github_username": "ParkIsComing",
-      "role": "Regulator"
+      "github_username": "ParkIsComing"
     },
     {
       "year": "8th",
@@ -422,8 +428,7 @@
       "photo": "jeehea.jpg",
       "short_bio": "할까말까 할때는 한다! 같이하면 더 좋지☘️",
       "github_username": "jeeheaG",
-      "linkedin_username": "jihye-park-4b2411304",
-      "role": "Regulator"
+      "linkedin_username": "jihye-park-4b2411304"
     },
     {
       "year": "8th",
@@ -431,8 +436,7 @@
       "name_en": "Jeongmin Do",
       "photo": "dojeongmin.jpg",
       "short_bio": "온 세상이 네잎클로버야🍀",
-      "github_username": "silverstar0727",
-      "role": "Organizer"
+      "github_username": "silverstar0727"
     },
     {
       "year": "8th",
@@ -479,8 +483,7 @@
       "photo": "hyukjoon.jpg",
       "short_bio": "끊임없이 의심하고 반증하기",
       "linkedin_username": "hong-sile",
-      "github_username": "hong-sile",
-      "role": "Regulator"
+      "github_username": "hong-sile"
     },
     {
       "year": "8th",
@@ -656,7 +659,8 @@
       "photo": "yubin.jpg",
       "short_bio": "배움과 성장을 사랑합니다 🥰",
       "linkedin_username": "dev-yubin",
-      "github_username": "yubin21"
+      "github_username": "yubin21",
+      "role": "Regulator"
     },
     {
       "year": "7th",
