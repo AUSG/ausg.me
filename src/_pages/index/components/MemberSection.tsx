@@ -1,9 +1,20 @@
-import React from 'react';
-// import ArrowRightIcon from 'public/icons/arrow_right.svg';
+import React, { useState, useEffect } from 'react';
+import ArrowRightIcon from 'public/icons/arrow_right.svg';
 import QUOTES from '@/src/constants/quotes';
 import QuoteCard from './QuoteCard';
 
+const INITIAL_COUNT = 6;
+
 export default function MemberSection() {
+  const [showAll, setShowAll] = useState(false);
+  const [shuffled, setShuffled] = useState(QUOTES.slice(0, INITIAL_COUNT));
+
+  useEffect(() => {
+    setShuffled([...QUOTES].sort(() => Math.random() - 0.5));
+  }, []);
+
+  const displayed = showAll ? shuffled : shuffled.slice(0, INITIAL_COUNT);
+
   return (
     <div className="px-[20px] pt-[40px] pb-[80px] md:mx-auto md:max-w-screen-xl xl:py-[100px]">
       <h1 className="text-[24px] font-bold leading-[34px] xl:text-[36px] xl:leading-[52px]">
@@ -15,7 +26,7 @@ export default function MemberSection() {
         className="my-[36px] flex flex-col gap-y-[24px]
           md:mt-[60px] md:block md:columns-2 md:gap-x-[48px] xl:gap-x-[60px]"
       >
-        {QUOTES.map(props => (
+        {displayed.map(props => (
           <div
             key={props.profile}
             className="md:mb-[24px] md:break-inside-avoid-column"
@@ -25,16 +36,18 @@ export default function MemberSection() {
         ))}
       </section>
 
-      <div className="flex justify-center">
-        {/* TODO: member 페이지 개발 후 주석 해제하기 */}
-        {/* <button
+      {!showAll && (
+        <button
           type="button"
-          className="mt-[36px] flex items-center gap-x-[8px] rounded-[20px] bg-primary py-[6px] px-[48px] text-[14px] font-bold leading-[36px] text-white"
+          onClick={() => setShowAll(true)}
+          className="mx-auto mt-[36px] flex items-center rounded-[20px] bg-primary px-[48px] py-[6px] transition-transform duration-200 hover:-translate-y-1 xl:mt-[60px]"
         >
-          AUSG 멤버 더 살펴보기
-          <ArrowRightIcon className="h-[24px] w-[24px] text-white" />
-        </button> */}
-      </div>
+          <span className="mr-[8px] text-[14px] font-bold leading-[36px] text-white xl:text-[16px] xl:leading-[48px]">
+            AUSG 멤버 더 살펴보기
+          </span>
+          <ArrowRightIcon className="h-[24px] w-[24px] rotate-90 fill-white" />
+        </button>
+      )}
     </div>
   );
 }
