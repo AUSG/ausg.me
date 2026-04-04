@@ -1,6 +1,49 @@
 const QUOTES = [
   {
     content:
+      '아 : 아직도 고민 하고 계신가요?' +
+      '\n' +
+      '우 : 우물밖을 끊임없이 탐구하는 개구리와 함께하는' +
+      '\n' +
+      '슥 : 슥별한 날들이 계속 됩니다',
+    name: '길상혁',
+    profile: 'AUSG 8기, 슈퍼진',
+    imagePath: '/people/sanghyuk.gil.jpg',
+  },
+  {
+    content:
+      '혼자서는 듣기 힘든 다양한 인사이트와 소중한 경험을 자발적으로 나누며, 다 함께 성장하는 AUSG의 문화가 좋았고, 커리어의 첫발을 내딛는 시기에 다양한 분야의 친구들과 좋은 자극을 주고받을 수 있는 든든한 커뮤니티를 만나게 되어 무척 다행이라고 생각합니다. 이런 멋진 문화를 가진 커뮤니티의 일원으로 함께할 수 있어 진심으로 즐겁습니다! 꼭 들어오시길 완전 강추합니다!',
+    name: '김대현',
+    profile: 'AUSG 9기, 메가존소프트 Solutions Architect',
+    imagePath: '/people/daehyun.lee.jpg',
+  },
+  {
+    content:
+      'AUSG은 제가 꿈꾸던 이상적인 커뮤니티였습니다. 클라우드, 기술은 물론 다양한 분야에 진심인 사람들이 모여 있고, 서로가 서로의 세계를 넓혀주며 즐겁게 성장할 수 있는 따뜻한 곳이에요. 자신의 경험과 지식을 나누는 일을 즐기고, 또 다른 사람의 경험과 지식으로부터 많은 배움과 동기부여를 얻고 싶다면, AUSG으로 오세요!',
+    name: '신현수',
+    profile: 'AUSG 9기, 당근 Software Engineer, Backend / AWS Cloud Club Captain',
+    imagePath: '/people/hyunsoo.shin.jpg',
+  },
+  {
+    content:
+      '커리어를 진행하면서 만날 수 있는 가장 소중한 사람들을 만날 수 있는 곳!' +
+      '\n' +
+      '함께 공부하며 같이 배우고 내가 아는 건 공유하며 성장할 수 있는 동아리!' +
+      '\n' +
+      '공부 말고도 재밌는 활동들도 많이 할 수 있는 최고의 커뮤니티!',
+    name: '이태경',
+    profile: 'AUSG 9기, 아주대학교',
+    imagePath: '/people/taekyung.lee.jpg',
+  },
+  {
+    content:
+      'AUSG만큼 진심으로 개발 이야기를 즐겁게 나눌 수 있는 사람들은 없다고 생각합니다! 기술에 진심인 사람이라면 항상 환영입니다!! ',
+    name: '이건',
+    profile: 'AUSG 9기, 한양대학교',
+    imagePath: '/people/geon.lee.jpg',
+  },
+  {
+    content:
       '쉽사리 뵐 수 없는 멋진 분들이 많은 동아리입니다. 그런 분들에게 많이 배우며, 또 그들이 가지고 있는 시야를 함께 가지고 싶어 공부하고 성장하게 되는 건강한 동아리입니다. AUSG 다니고, 나의 성공시대 시작됐다.',
     name: '이태현',
     profile: 'AUSG 7기, 당근마켓 Backend Engineer',
@@ -99,10 +142,10 @@ const QUOTES = [
   },
   {
     content:
-      'AUSG에서 다양한 사람들을 많이 만나서 발전한 것 같습니다 :) 우리 AUSG 멤버들을 볼 때 내가 부족한 점과 내가 발전해야 하는 점 등을 항상 느끼고 있어요. 함께 발전해 나아갈 수 있는 엄청난 커뮤니티에 함께 하는 것만으로도 대단한 영광입니다.',
+      '"인생은 멀리서 보면 희극이고 가까이서 보면 비극이다"',
     name: '김민태',
-    profile: 'AUSG 4기, 우아한형제들 서버 개발자',
-    imagePath: '/people/connor614.jpg',
+    profile: 'AUSG 4기, Woowa Bros.',
+    imagePath: '/people/mintae.kim.jpg',
   },
   {
     content:
