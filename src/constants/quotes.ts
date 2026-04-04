@@ -21,7 +21,8 @@ const QUOTES = [
     content:
       'AUSG은 제가 꿈꾸던 이상적인 커뮤니티였습니다. 클라우드, 기술은 물론 다양한 분야에 진심인 사람들이 모여 있고, 서로가 서로의 세계를 넓혀주며 즐겁게 성장할 수 있는 따뜻한 곳이에요. 자신의 경험과 지식을 나누는 일을 즐기고, 또 다른 사람의 경험과 지식으로부터 많은 배움과 동기부여를 얻고 싶다면, AUSG으로 오세요!',
     name: '신현수',
-    profile: 'AUSG 9기, 당근 Software Engineer, Backend / AWS Cloud Club Captain',
+    profile:
+      'AUSG 9기, 당근 Software Engineer, Backend / AWS Cloud Club Captain',
     imagePath: '/people/hyunsoo.shin.jpg',
   },
   {
@@ -141,8 +142,7 @@ const QUOTES = [
     imagePath: '/people/einokt-2.jpg',
   },
   {
-    content:
-      '"인생은 멀리서 보면 희극이고 가까이서 보면 비극이다"',
+    content: '"인생은 멀리서 보면 희극이고 가까이서 보면 비극이다"',
     name: '김민태',
     profile: 'AUSG 4기, Woowa Bros.',
     imagePath: '/people/mintae.kim.jpg',
