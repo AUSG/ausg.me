@@ -14,6 +14,7 @@ export const RECRUITMENT_CONFIG = {
   emailApiUrl:
     'https://ovshxcxfyslspeeqa26og2uvya0gqkfc.lambda-url.ap-northeast-2.on.aws/email/register', // 이메일 등록 API URL
   showEmailInput: true, // 모집 알림 이메일 여부
+  showScheduleBubble: true, // 모집 일정 말풍선 표시 여부
 };
 
 // 빅챗 설정

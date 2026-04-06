@@ -24,6 +24,7 @@ export const getRecruitmentStatus = () => {
     generation: RECRUITMENT_CONFIG.generation,
     applyDeadline: RECRUITMENT_CONFIG.deadlineDate,
     showEmailInput: RECRUITMENT_CONFIG.showEmailInput,
+    showScheduleBubble: RECRUITMENT_CONFIG.showScheduleBubble,
   };
 };
 
