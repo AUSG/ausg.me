@@ -102,11 +102,18 @@ export default function IntroSection() {
       <main className="flex flex-col overflow-hidden px-[20px] pb-[38px] pt-[30px] md:mx-auto md:max-w-screen-xl md:py-0">
         <div className="flex items-center md:py-10">
           <div className="hidden flex-1 md:mt-24 md:block">
-            <CloudImage
-              width="100%"
-              height="100%"
-              className="animate-floating"
-            />
+            <div className="relative animate-floating">
+              <div className="absolute -top-24 left-1/2 z-10 -translate-x-1/2">
+                <div className="relative whitespace-nowrap rounded-full bg-white px-8 py-3.5 text-[23px] font-bold text-primary shadow-[-10px_10px_0px_rgba(0,0,0,0.3)]">
+                  6월 중 모집 예정!
+                  <div className="absolute -bottom-2.5 left-1/2 h-0 w-0 -translate-x-1/2 border-l-[10px] border-r-[10px] border-t-[10px] border-l-transparent border-r-transparent border-t-white" />
+                </div>
+              </div>
+              <CloudImage
+                width="100%"
+                height="100%"
+              />
+            </div>
           </div>
           <div className="mt-[8px] flex flex-col items-center md:min-w-[400px] md:flex-1">
             <h1 className="text-[28px] font-bold text-white md:text-center md:text-[48px]">
@@ -130,15 +137,10 @@ export default function IntroSection() {
             </div> */}
             {!isApplyPeriod && showEmailInput && (
               <div className="mt-6 hidden flex-col items-center gap-6 md:flex">
-                <div className="flex flex-col items-center gap-6">
-                  <div className="flex flex-col items-center">
-                    <p className="text-[26px] font-bold text-white">
-                      {generation}기 모집 시작 알림을 받고 싶다면?
-                    </p>
-                    <p className="text-sm text-white/80">
-                      (6월 중 모집 예정)
-                    </p>
-                  </div>
+                <div className="flex flex-col items-center gap-4">
+                  <p className="text-[26px] font-bold text-white">
+                    {generation}기 모집 시작 알림을 받고 싶다면?
+                  </p>
                   <form
                     onSubmit={handleEmailSubmit}
                     className="flex items-center gap-3"
@@ -189,14 +191,22 @@ export default function IntroSection() {
           </div>
         </div>
 
-        <div className="-mx-[20px] mt-[18px] flex justify-end md:hidden">
-          <CloudTruncatedImage
-            width="80%"
-            height="100%"
-            className="right-0 animate-floating transition-[translate]"
-          />
+        <div className="-mx-[20px] mt-[90px] flex justify-end md:hidden">
+          <div className="relative animate-floating" style={{ width: '80%' }}>
+            <div className="absolute -top-16 left-1/2 z-10 -translate-x-1/2">
+              <div className="relative whitespace-nowrap rounded-full bg-white px-6 py-2.5 text-[18px] font-bold text-primary shadow-[-6px_6px_0px_rgba(0,0,0,0.3)]">
+                6월 중 모집 예정!
+                <div className="absolute -bottom-2 left-1/2 h-0 w-0 -translate-x-1/2 border-l-[8px] border-r-[8px] border-t-[8px] border-l-transparent border-r-transparent border-t-white" />
+              </div>
+            </div>
+            <CloudTruncatedImage
+              width="100%"
+              height="100%"
+              className="right-0 transition-[translate]"
+            />
+          </div>
         </div>
-        <div className="mt-[24px] flex flex-col flex-wrap items-center justify-center gap-4 md:hidden">
+        <div className="-mt-[4px] flex flex-col flex-wrap items-center justify-center gap-4 md:hidden">
           <div className="flex items-center gap-3">
             <p className="text-center text-[22px] font-bold leading-[3rem] text-white">
               {!isApplyPeriod ? '' : `☁️ ${generation}기 모집중 ☁️`}
@@ -237,14 +247,9 @@ export default function IntroSection() {
           {!isApplyPeriod && showEmailInput && (
             <div className="flex flex-col items-center gap-4">
               <div className="flex w-full flex-col items-center gap-4">
-                <div className="flex flex-col items-center">
-                  <p className="text-center text-[26px] font-bold text-white">
-                    {generation}기 모집 시작 알림을 받고 싶다면?
-                  </p>
-                  <p className="text-sm text-white/70">
-                    (2026년 6월 중 모집 예정)
-                  </p>
-                </div>
+                <p className="text-center text-[26px] font-bold text-white">
+                  {generation}기 모집 시작 알림을 받고 싶다면?
+                </p>
                 <form
                   onSubmit={handleEmailSubmit}
                   className="flex w-full max-w-[280px] flex-col items-center gap-3"
