@@ -130,10 +130,15 @@ export default function IntroSection() {
             </div> */}
             {!isApplyPeriod && showEmailInput && (
               <div className="mt-6 hidden flex-col items-center gap-6 md:flex">
-                <div className="flex flex-col items-center gap-4">
-                  <p className="text-[26px] font-bold text-white">
-                    {generation}기 모집 시작 알림을 받고 싶다면?
-                  </p>
+                <div className="flex flex-col items-center gap-6">
+                  <div className="flex flex-col items-center">
+                    <p className="text-[26px] font-bold text-white">
+                      {generation}기 모집 시작 알림을 받고 싶다면?
+                    </p>
+                    <p className="text-sm text-white/80">
+                      (6월 중 모집 예정)
+                    </p>
+                  </div>
                   <form
                     onSubmit={handleEmailSubmit}
                     className="flex items-center gap-3"
@@ -232,9 +237,14 @@ export default function IntroSection() {
           {!isApplyPeriod && showEmailInput && (
             <div className="flex flex-col items-center gap-4">
               <div className="flex w-full flex-col items-center gap-4">
-                <p className="text-center text-[26px] font-bold text-white">
-                  {generation}기 모집 시작 알림을 받고 싶다면?
-                </p>
+                <div className="flex flex-col items-center">
+                  <p className="text-center text-[26px] font-bold text-white">
+                    {generation}기 모집 시작 알림을 받고 싶다면?
+                  </p>
+                  <p className="text-sm text-white/70">
+                    (2026년 6월 중 모집 예정)
+                  </p>
+                </div>
                 <form
                   onSubmit={handleEmailSubmit}
                   className="flex w-full max-w-[280px] flex-col items-center gap-3"
