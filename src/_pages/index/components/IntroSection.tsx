@@ -112,10 +112,7 @@ export default function IntroSection() {
                   </div>
                 </div>
               )}
-              <CloudImage
-                width="100%"
-                height="100%"
-              />
+              <CloudImage width="100%" height="100%" />
             </div>
           </div>
           <div className="mt-[8px] flex flex-col items-center md:min-w-[400px] md:flex-1">
