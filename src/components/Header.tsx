@@ -5,9 +5,7 @@ import MenuIcon from '@/public/icons/menu.svg';
 import LogoWhite from '@/public/images/logo-white.svg';
 import LogoColor from '@/public/images/logo-color.svg';
 import InstagramIcon from '@/public/icons/instagram.svg';
-import FacebookIcon from '@/public/icons/facebook.svg';
 import GithubIcon from '@/public/icons/github.svg';
-import MediumIcon from '@/public/icons/medium.svg';
 import YoutubeIcon from '@/public/icons/youtube.svg';
 import ArrowRight from '@/public/icons/arrow_right.svg';
 import Close from '@/public/icons/close.svg';
@@ -38,16 +36,8 @@ export default function Header({ theme = 'white' }: HeaderProps) {
         ),
       },
       {
-        url: 'https://www.facebook.com/ausgkr',
-        icon: <FacebookIcon width="100%" height="100%" className={fillColor} />,
-      },
-      {
         url: 'https://www.youtube.com/channel/UCaN1L9bj7pCuv1PiKzx-2rQ',
         icon: <YoutubeIcon width="100%" height="100%" className={fillColor} />,
-      },
-      {
-        url: 'https://medium.com/ausg-kr',
-        icon: <MediumIcon width="100%" height="100%" className={fillColor} />,
       },
       {
         url: 'https://github.com/AUSG',

@@ -44,7 +44,7 @@ export default function BlogSection() {
             <div className="relative mx-auto h-0 w-full pb-[56.25%]">
               <iframe
                 className="absolute left-0 top-0 h-full w-full"
-                src="https://www.youtube.com/embed/videoseries?si=idHMm0h2O93bHMkJ&amp;list=PLzE5CrlMM0CDLVzxgir4Kbj7oPBD4VUvC"
+                src="https://www.youtube.com/embed/videoseries?list=PLzE5CrlMM0CDLVzxgir4Kbj7oPBD4VUvC"
                 title="BigChat 발표영상 플레이리스트"
                 frameBorder="1"
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -55,14 +55,14 @@ export default function BlogSection() {
           </div>
           <div className="flex basis-[50%] flex-col">
             <span className="pb-4 text-[20px] font-bold text-white  md:text-2xl">
-              외부 발표영상 플레이리스트
+              AUSGCON 발표영상 플레이리스트
             </span>
 
             <div className="relative mx-auto h-0 w-full pb-[56.25%]">
               <iframe
                 className="absolute left-0 top-0 h-full w-full"
-                src="https://www.youtube.com/embed/videoseries?si=loa-rXJnT3nTl_Mv&amp;list=PLzE5CrlMM0CBxMT6DeEoWbgSnobkfg74L"
-                title="외부 발표영상 플레이리스트"
+                src="https://www.youtube.com/embed/videoseries?list=PLzE5CrlMM0CC2zMxggs4GasLICq5dKDqW"
+                title="AUSGCON 발표영상 플레이리스트"
                 frameBorder="0"
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
