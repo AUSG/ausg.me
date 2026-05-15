@@ -103,19 +103,12 @@ const BigChat = () => {
               <span className="hidden md:inline"> </span>
               PUBLIC BIGCHAT 🚀
             </h1>
-            <p className="mb-6 text-lg md:text-xl">
+            <p className="text-lg md:text-xl">
               다양한 분야의 AUSG 멤버들이 한 데 모여
               <br className="md:hidden" />
               <span className="hidden md:inline"> </span>
               클라우드 개발 경험과 노하우를 공유해요.
             </p>
-            <button
-              type="button"
-              disabled
-              className="inline-block cursor-not-allowed rounded-full bg-gray-300 px-6 py-3 font-bold text-primary shadow-lg"
-            >
-              신청 마감
-            </button>
           </div>
         </header>
 
