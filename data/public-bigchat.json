@@ -1,0 +1,62 @@
+{
+  "publicBigchat": [
+    {
+      "date": "2024.06.24",
+      "speaker": "이태현",
+      "title": "MySQL GROUP BY 톺아보기",
+      "backgroundYear": 2021
+    },
+    {
+      "date": "2024.06.24",
+      "speaker": "강시온",
+      "title": "배포 자동화 어디까지 해봤니?",
+      "backgroundYear": 2021
+    },
+    {
+      "date": "2025.06.26",
+      "speaker": "도정민",
+      "title": "Keynote",
+      "backgroundYear": 2021,
+      "videoUrl": "https://www.youtube.com/watch?v=MoxWSAIeSeQ"
+    },
+    {
+      "date": "2025.06.26",
+      "speaker": "문성혁",
+      "title": "No I don't think so",
+      "backgroundYear": 2021,
+      "videoUrl": "https://www.youtube.com/watch?v=cplXBjmEPvs"
+    },
+    {
+      "date": "2025.06.26",
+      "speaker": "김보겸",
+      "title": "홈서버 위에서 쿠버네티스 기반 호스팅 서비스 만들기",
+      "backgroundYear": 2021,
+      "videoUrl": "https://www.youtube.com/watch?v=rtlo7Nb4Txg"
+    },
+    {
+      "date": "2025.06.26",
+      "speaker": "안지완",
+      "title": "Platform Engineering의 함정",
+      "backgroundYear": 2021,
+      "videoUrl": "https://www.youtube.com/watch?v=0AjmXQ06iQ0"
+    },
+    {
+      "date": "2026.01.26",
+      "speaker": "장영환",
+      "title": "DB를 느리게 만드는 다양한 꿀팁들",
+      "backgroundYear": 2021
+    },
+    {
+      "date": "2026.01.26",
+      "speaker": "강시온",
+      "title": "서비스를 넘어 제품으로: AWS에서 소프트웨어를 '제품'으로 팔기 위한 여정",
+      "backgroundYear": 2021
+    },
+    {
+      "date": "2026.01.26",
+      "speaker": "2025 JapanAWS Jr. Champions",
+      "title": "Software Engineering Careers and Their Relationship with AWS in Japan",
+      "backgroundYear": 2021
+    }
+  ]
+}

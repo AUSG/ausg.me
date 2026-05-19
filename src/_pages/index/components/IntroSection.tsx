@@ -6,10 +6,7 @@ import { useRouter } from 'next/router';
 import { event } from '@/src/lib/gtag';
 import useCountdown from '@/src/_pages/hooks/useCountdown';
 import { RECRUITMENT_CONFIG } from '@/src/constants/config';
-import {
-  getRecruitmentStatus,
-  getBigchatStatus,
-} from '@/src/utils/check-status';
+import { getRecruitmentStatus } from '@/src/utils/check-status';
 
 export default function IntroSection() {
   const [isClient, setIsClient] = useState(false);
@@ -20,15 +17,11 @@ export default function IntroSection() {
   // 중앙화된 모집 설정 사용
   const {
     isApplyPeriod,
-    isAfterApply,
     generation,
     applyDeadline,
     showEmailInput,
     showScheduleBubble,
   } = getRecruitmentStatus();
-
-  // 빅챗 상태 확인
-  const { isBigchatPeriod } = getBigchatStatus();
 
   const [days, hours, minutes, seconds] = useCountdown(applyDeadline.toDate());
 
@@ -40,16 +33,6 @@ export default function IntroSection() {
       value: 1,
     });
     router.push('/apply');
-  };
-
-  const handleBigchatClick = () => {
-    event({
-      action: 'public-bigchat',
-      category: 'click',
-      label: '퍼블릭 빅챗 참여하기',
-      value: 1,
-    });
-    router.push('/publicbigchat');
   };
 
   const handleEmailSubmit = async (e: React.FormEvent) => {
@@ -172,20 +155,6 @@ export default function IntroSection() {
                     ? `🔥 지원 마감까지 ${days}일 ${hours}시간 ${minutes}분 ${seconds}초`
                     : null}
                 </p>
-                <div className="flex items-center gap-2">
-                  <p className="text-[18px] font-bold text-white md:text-[24px]">
-                    {!isBigchatPeriod ? null : 'AUSG이 궁금하다면?'}
-                  </p>
-                  {!isBigchatPeriod ? null : (
-                    <button
-                      type="button"
-                      onClick={handleBigchatClick}
-                      className="rounded-md bg-white px-6 py-2 text-[18px] font-bold text-primary duration-200 hover:bg-white/90"
-                    >
-                      퍼블릭 빅챗 참여하기
-                    </button>
-                  )}
-                </div>
               </div>
             )}
           </div>
@@ -230,20 +199,6 @@ export default function IntroSection() {
                   ? `🔥지원 마감까지 ${days}일 ${hours}시간 ${minutes}분 ${seconds}초🔥`
                   : null}
               </p>
-              <div className="flex items-center gap-2">
-                <p className="text-center text-[16px] font-bold text-white">
-                  {!isBigchatPeriod ? null : 'AUSG이 궁금하다면?'}
-                </p>
-                {!isBigchatPeriod ? null : (
-                  <button
-                    type="button"
-                    onClick={handleBigchatClick}
-                    className="rounded-md bg-white/90 px-6 py-2 text-[16px] font-bold text-primary transition-all duration-200 hover:bg-white"
-                  >
-                    퍼블릭 빅챗 참여하기
-                  </button>
-                )}
-              </div>
             </div>
           )}
           {!isApplyPeriod && showEmailInput && (

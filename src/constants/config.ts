@@ -16,10 +16,3 @@ export const RECRUITMENT_CONFIG = {
   showEmailInput: true, // 모집 알림 이메일 여부
   showScheduleBubble: true, // 모집 일정 말풍선 표시 여부
 };
-
-// 빅챗 설정
-export const BIGCHAT_CONFIG = {
-  openDate: dayjs('2025-06-13 00:00:00').tz('Asia/Seoul'), // 퍼블릭 빅챗 시작일
-  deadlineDate: dayjs('2025-06-23 23:59:59').tz('Asia/Seoul'), // 퍼블릭 빅챗 마감일
-  url: 'https://www.meetup.com/awskrug/events/308459192', // 퍼블릭 빅챗 URL
-};

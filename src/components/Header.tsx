@@ -10,7 +10,6 @@ import YoutubeIcon from '@/public/icons/youtube.svg';
 import ArrowRight from '@/public/icons/arrow_right.svg';
 import Close from '@/public/icons/close.svg';
 import clsx from 'clsx';
-import { getRecruitmentStatus } from '../utils/check-status';
 
 interface HeaderProps {
   theme?: 'white' | 'colored';
@@ -24,8 +23,6 @@ export default function Header({ theme = 'white' }: HeaderProps) {
     if (theme === 'white') return 'fill-primary';
     return 'fill-white';
   }, [theme]);
-
-  const { isApplyPeriod, generation } = getRecruitmentStatus();
 
   const externalLinks = useMemo(
     () => [
@@ -66,14 +63,14 @@ export default function Header({ theme = 'white' }: HeaderProps) {
               )}
             </a>
           </Link>
-          <Link href="/activities">
+          <Link href="/bigchat">
             <a
               className={clsx(
                 theme === 'white' ? 'text-primary' : 'text-white',
                 'mr-6 hidden items-center p-3 font-bold lg:flex'
               )}
             >
-              Activities
+              Bigchat
             </a>
           </Link>
           <Link href="/people">
@@ -98,14 +95,14 @@ export default function Header({ theme = 'white' }: HeaderProps) {
               </a>
             </Link>
           )} */}
-          <Link href="/publicbigchat">
+          <Link href="/ausgcon">
             <a
               className={clsx(
                 theme === 'white' ? 'text-primary' : 'text-white',
                 'mr-4 hidden items-center p-3 font-bold lg:flex'
               )}
             >
-              PublicBigChat
+              AUSGCON
             </a>
           </Link>
           <Link href="/contact">
@@ -178,10 +175,10 @@ export default function Header({ theme = 'white' }: HeaderProps) {
             ))}
           </div>
           <nav className="mt-[50px] flex flex-col gap-4">
-            <Link href="/activities">
+            <Link href="/bigchat">
               <a className="flex items-center">
                 <span className="mr-[8px] text-[24px] font-bold text-white">
-                  Activities
+                  Bigchat
                 </span>
                 <ArrowRight width="36" height="36" fill="white" />
               </a>
@@ -204,10 +201,10 @@ export default function Header({ theme = 'white' }: HeaderProps) {
                 </a>
               </Link>
             )} */}
-            <Link href="/publicbigchat">
+            <Link href="/ausgcon">
               <a className="flex items-center">
                 <span className="mr-[8px] text-[24px] font-bold text-white">
-                  PublicBigChat
+                  AUSGCON
                 </span>
                 <ArrowRight width="36" height="36" fill="white" />
               </a>

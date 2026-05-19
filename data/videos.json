@@ -1,4 +1,5 @@
 {
+  "_videosComment": "현재 쓰이는 곳 없음",
   "videos": [
     {
       "speaker": "김연수",
@@ -106,9 +107,39 @@
 
   "ausgconVideos": [
     {
+      "speaker": "장영환",
+      "title": "[AUSGCON2025] 잘 때도 돈 버는 법: 암호화폐 트레이딩 101 - 장영환",
+      "embedUrl": "https://www.youtube.com/embed/OoVxRZ6SY8E?si=Kv1_A8TEU5LVfx7v"
+    },
+    {
+      "speaker": "김대현",
+      "title": "[AUSGCON2025] 우리가 성장하는 방법. Code, Grow, Connect with 커뮤니티 - 김대현",
+      "embedUrl": "https://www.youtube.com/embed/b55_iv0X0zY?si=BidDg9UyNEFPciOO"
+    },
+    {
+      "speaker": "서찬혁",
+      "title": "[AUSGCON2025] Support Engineer의 성장이란? - 서찬혁",
+      "embedUrl": "https://www.youtube.com/embed/bZNZWap_Gjc?si=PdS6-BU72m733NPz"
+    },
+    {
       "speaker": "우수연",
       "title": "[AUSGCON 2023] 내 애플리케이션의 컨테이너화, AWS에서 시작하기 - 우수연 (IBM / AUSG)",
       "embedUrl": "https://www.youtube.com/embed/K4AZpaEFkmg?si=EYTjLx0-xewWgmf7"
+    },
+    {
+      "speaker": "이승현",
+      "title": "[AUSGCON 2023] EC2와 RDS의 기초 - 이승현 (SOPT)",
+      "embedUrl": "https://www.youtube.com/embed/jfCc0u3-zDo"
+    },
+    {
+      "speaker": "김수빈",
+      "title": "[AUSGCON 2023] Terraform으로 개발 생산성 높이기 - 김수빈 (비바리퍼블리카 / AUSG)",
+      "embedUrl": "https://www.youtube.com/embed/VBUCdYbSlFM"
+    },
+    {
+      "speaker": "김민준",
+      "title": "[AUSGCON 2023]  Infrastructure from Code - 김민준 (Cloud Club)",
+      "embedUrl": "https://www.youtube.com/embed/Sia8yGh7J4A"
     },
     {
       "speaker": "박진수",
