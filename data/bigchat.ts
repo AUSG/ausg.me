@@ -15,7 +15,6 @@ export interface BigchatTalk {
   year: BigchatYear;
   title: string;
   speaker: string;
-  generation: string;
   avatarSpeakers?: string[];
   imageSrc?: string;
   videoUrl?: string;
