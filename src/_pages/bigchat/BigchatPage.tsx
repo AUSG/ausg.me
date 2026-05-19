@@ -503,7 +503,7 @@ const TalkCard = ({ talk }: { talk: BigchatTalk }) => {
     : speakers;
 
   return (
-    <article className="relative overflow-hidden rounded-[24px] bg-[#eef2ff] p-5 text-primary transition-colors hover:bg-[#e7edff] md:min-h-[176px] md:p-6">
+    <article className="relative flex h-full flex-col overflow-hidden rounded-[24px] bg-[#eef2ff] p-5 text-primary transition-colors hover:bg-[#e7edff] md:min-h-[176px] md:p-6">
       <div className="flex items-start justify-between gap-4">
         <div className="flex flex-wrap gap-2">
           <span className="rounded-full bg-primary px-3 py-1 text-sm font-semibold text-white">
@@ -535,7 +535,7 @@ const TalkCard = ({ talk }: { talk: BigchatTalk }) => {
         {talk.title}
       </h3>
 
-      <div className="mt-8 flex items-end justify-between gap-5 md:mt-10">
+      <div className="mt-auto flex items-end justify-between gap-5 pt-8 md:pt-10">
         <div className="flex min-w-0 items-center gap-4">
           <SpeakerAvatarGroup speakers={avatarSpeakers} />
           <div className="min-w-0">
