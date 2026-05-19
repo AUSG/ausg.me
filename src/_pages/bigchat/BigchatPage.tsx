@@ -72,6 +72,24 @@ const peopleByKoreanName = new Map<string, Person>(
   getPeopleData().people.map(person => [person.name_ko, person])
 );
 
+const getYoutubeEmbedUrl = (url: string) => {
+  const videoId = url.match(
+    /(?:youtu\.be\/|youtube\.com\/watch\?v=|youtube\.com\/embed\/)([^?&]+)/
+  )?.[1];
+
+  return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
+};
+
+const publicBigchatVideos: VideoItem[] = publicBigchat
+  .filter((item): item is PublicBigchat & { videoUrl: string } =>
+    Boolean(item.videoUrl)
+  )
+  .map(item => ({
+    speaker: item.speaker,
+    title: `PUBLIC BIGCHAT: ${item.title} - ${item.speaker}`,
+    embedUrl: getYoutubeEmbedUrl(item.videoUrl),
+  }));
+
 interface MatchedSpeaker {
   name: string;
   person?: Person;
@@ -405,7 +423,7 @@ const PublicBigchatSection = () => (
     <div className="lg:mx-auto lg:max-w-screen-xl">
       <FeatureCards />
       <VideoCarousel
-        videos={videoData.bigChatVideos}
+        videos={publicBigchatVideos}
         title="Last Public Big Chat Video"
       />
       <PublicBigchatGrid />
@@ -464,29 +482,38 @@ const YearPagination = ({
 
 const SpeakerAvatarGroup = ({ speakers }: { speakers: MatchedSpeaker[] }) => {
   const speaker = speakers[0];
+  const avatarItems = (speakers.length ? speakers : [speaker]).slice(0, 3);
+  const keyCounts = new Map<string, number>();
 
   return (
     <div className="flex h-12 min-w-[48px] shrink-0 items-center md:h-14 md:min-w-[56px]">
-      {(speakers.length ? speakers : [speaker]).slice(0, 3).map((item, i) => (
-        <div
-          key={item?.name ?? 'speaker'}
-          className={clsx(
-            'relative h-12 w-12 overflow-hidden rounded-full border-2 border-[#cbd8ff] bg-white md:h-14 md:w-14',
-            i > 0 && '-ml-3'
-          )}
-        >
-          <Image
-            src={
-              item?.person
-                ? `/people/${item.person.photo}`
-                : '/images/profile-1.png'
-            }
-            alt={`${item?.name ?? 'Bigchat speaker'} profile`}
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
-      ))}
+      {avatarItems.map((item, i) => {
+        const keyBase = item?.person?.photo ?? item?.name ?? 'speaker';
+        const keyCount = keyCounts.get(keyBase) ?? 0;
+
+        keyCounts.set(keyBase, keyCount + 1);
+
+        return (
+          <div
+            key={`${keyBase}-${keyCount}`}
+            className={clsx(
+              'relative h-12 w-12 overflow-hidden rounded-full border-2 border-[#cbd8ff] bg-white md:h-14 md:w-14',
+              i > 0 && '-ml-3'
+            )}
+          >
+            <Image
+              src={
+                item?.person
+                  ? `/people/${item.person.photo}`
+                  : '/images/profile-1.png'
+              }
+              alt={`${item?.name ?? 'Bigchat speaker'} profile`}
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+        );
+      })}
     </div>
   );
 };

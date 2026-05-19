@@ -21,6 +21,24 @@ const visibleVideoCount = 4;
 const getRandomVideos = (videos: VideoItem[], count: number) =>
   [...videos].sort(() => Math.random() - 0.5).slice(0, count);
 
+const getEventLink = (card: AusgconCard) => {
+  if (card.eventPageUrl) {
+    return {
+      href: card.eventPageUrl,
+      label: '행사 페이지 보기',
+    };
+  }
+
+  if (card.videoUrl) {
+    return {
+      href: card.videoUrl,
+      label: '영상으로 보기',
+    };
+  }
+
+  return null;
+};
+
 /** 발표 다시보기: 상단 하늘빛 블룸 + 측면 인디고 글로우 + 남색 베이스 */
 const ausgconVideoClusterStyle: CSSProperties = {
   backgroundColor: '#101322',
@@ -90,57 +108,120 @@ const EventLink = ({
   card: AusgconCard;
   compact?: boolean;
 }) => {
-  const href = card.href ?? youtubeUrl;
-  const label = card.href ? '행사 페이지 보기' : '영상으로 보기';
+  const link = getEventLink(card);
+
+  if (!link) return null;
 
   return (
     <a
-      href={href}
+      href={link.href}
       target="_blank"
       rel="noreferrer"
       className={`inline-flex items-center gap-2 rounded-full bg-primary font-semibold text-white transition-colors hover:bg-[#3138e8] ${
         compact ? 'px-4 py-2 text-sm' : 'px-5 py-3 text-base'
       }`}
     >
-      {label}
+      {link.label}
       <ArrowRightIcon className="h-4 w-4 fill-white" />
     </a>
   );
 };
 
-const LatestEventSection = ({ card }: { card: AusgconCard }) => (
-  <section className="px-4 py-16 md:py-24">
-    <div className="mx-auto max-w-[1180px]">
-      <div className="text-center">
-        <span className="inline-flex rounded-full bg-white px-4 py-2 text-sm font-semibold text-primary">
-          Latest Event
-        </span>
-        <h2 className="text-slate-950 mt-5 text-[44px] font-semibold leading-[52px] md:text-[72px] md:leading-[82px]">
-          {card.title}
-        </h2>
-        <p
-          className="mx-auto mt-4 max-w-[620px] text-base font-medium leading-7 text-slate-600 md:text-lg md:leading-8"
-          style={{ wordBreak: 'keep-all' }}
-        >
-          AUSGCON은 “IT에 대한 열정이 있는 사람들을 위한 교류의 장”이라는
-          컨셉으로 열리는 오프라인 기술 컨퍼런스입니다.
-        </p>
-      </div>
+const LatestEventSection = ({ card }: { card: AusgconCard }) => {
+  const link = getEventLink(card);
 
-      <a
-        href={card.href ?? youtubeUrl}
-        target="_blank"
-        rel="noreferrer"
-        aria-label={`${card.title} 바로가기`}
-        className="mt-10 block overflow-hidden rounded-[36px] border border-white/80 bg-white/60 p-3 shadow-[0_24px_60px_rgba(34,64,120,0.14)] backdrop-blur"
-      >
-        <div className="overflow-hidden rounded-[28px]">
-          <PosterImage card={card} priority />
+  return (
+    <section className="px-4 py-16 md:py-24">
+      <div className="mx-auto max-w-[1180px]">
+        <div className="text-center">
+          <span className="inline-flex rounded-full bg-white px-4 py-2 text-sm font-semibold text-primary">
+            Latest Event
+          </span>
+          <h2 className="text-slate-950 mt-5 text-[44px] font-semibold leading-[52px] md:text-[72px] md:leading-[82px]">
+            {card.title}
+          </h2>
+          <p
+            className="mx-auto mt-4 max-w-[620px] text-base font-medium leading-7 text-slate-600 md:text-lg md:leading-8"
+            style={{ wordBreak: 'keep-all' }}
+          >
+            AUSGCON은 “IT에 대한 열정이 있는 사람들을 위한 교류의 장”이라는
+            컨셉으로 열리는 오프라인 기술 컨퍼런스입니다.
+          </p>
         </div>
-      </a>
 
-      <div className="mt-7 flex flex-col items-center justify-between gap-5 md:flex-row">
-        <div className="flex flex-wrap justify-center gap-2 md:justify-start">
+        {link ? (
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`${card.title} 바로가기`}
+            className="mt-10 block overflow-hidden rounded-[36px] border border-white/80 bg-white/60 p-3 shadow-[0_24px_60px_rgba(34,64,120,0.14)] backdrop-blur"
+          >
+            <div className="overflow-hidden rounded-[28px]">
+              <PosterImage card={card} priority />
+            </div>
+          </a>
+        ) : (
+          <div className="mt-10 overflow-hidden rounded-[36px] border border-white/80 bg-white/60 p-3 shadow-[0_24px_60px_rgba(34,64,120,0.14)] backdrop-blur">
+            <div className="overflow-hidden rounded-[28px]">
+              <PosterImage card={card} priority />
+            </div>
+          </div>
+        )}
+
+        <div className="mt-7 flex flex-col items-center justify-between gap-5 md:flex-row">
+          <div className="flex flex-wrap justify-center gap-2 md:justify-start">
+            {card.meta.map(item => (
+              <span
+                key={item}
+                className="rounded-full bg-slate-100 px-3 py-1.5 text-sm font-semibold text-slate-500"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+          <EventLink card={card} />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const ArchiveCard = ({ card }: { card: AusgconCard }) => {
+  const link = getEventLink(card);
+
+  return (
+    <article className="group overflow-hidden rounded-[28px] border border-primary/10 bg-white shadow-[0_12px_30px_rgba(69,77,255,0.08)] transition-transform duration-300 hover:-translate-y-1">
+      {link ? (
+        <a
+          href={link.href}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`${card.title} 바로가기`}
+          className="block overflow-hidden bg-[#f3f5ff]"
+        >
+          <div className="transition-transform duration-500 group-hover:scale-[1.02]">
+            <PosterImage card={card} />
+          </div>
+        </a>
+      ) : (
+        <div className="block overflow-hidden bg-[#f3f5ff]">
+          <div className="transition-transform duration-500 group-hover:scale-[1.02]">
+            <PosterImage card={card} />
+          </div>
+        </div>
+      )}
+      <div className="p-5 md:p-6">
+        <div className="flex items-center justify-between gap-3">
+          <span className="rounded-full bg-[#eef2ff] px-3 py-1.5 text-sm font-semibold text-primary">
+            {card.year}
+          </span>
+          <EventLink card={card} compact />
+        </div>
+        <h3 className="text-slate-950 mt-5 text-[24px] font-semibold leading-8 md:text-[30px] md:leading-[38px]">
+          {card.title}
+        </h3>
+        <div className="mt-5 flex flex-wrap gap-2">
           {card.meta.map(item => (
             <span
               key={item}
@@ -150,48 +231,10 @@ const LatestEventSection = ({ card }: { card: AusgconCard }) => (
             </span>
           ))}
         </div>
-        <EventLink card={card} />
       </div>
-    </div>
-  </section>
-);
-
-const ArchiveCard = ({ card }: { card: AusgconCard }) => (
-  <article className="group overflow-hidden rounded-[28px] border border-primary/10 bg-white shadow-[0_12px_30px_rgba(69,77,255,0.08)] transition-transform duration-300 hover:-translate-y-1">
-    <a
-      href={card.href ?? youtubeUrl}
-      target="_blank"
-      rel="noreferrer"
-      aria-label={`${card.title} 바로가기`}
-      className="block overflow-hidden bg-[#f3f5ff]"
-    >
-      <div className="transition-transform duration-500 group-hover:scale-[1.02]">
-        <PosterImage card={card} />
-      </div>
-    </a>
-    <div className="p-5 md:p-6">
-      <div className="flex items-center justify-between gap-3">
-        <span className="rounded-full bg-[#eef2ff] px-3 py-1.5 text-sm font-semibold text-primary">
-          {card.year}
-        </span>
-        <EventLink card={card} compact />
-      </div>
-      <h3 className="text-slate-950 mt-5 text-[24px] font-semibold leading-8 md:text-[30px] md:leading-[38px]">
-        {card.title}
-      </h3>
-      <div className="mt-5 flex flex-wrap gap-2">
-        {card.meta.map(item => (
-          <span
-            key={item}
-            className="rounded-full bg-slate-100 px-3 py-1.5 text-sm font-semibold text-slate-500"
-          >
-            {item}
-          </span>
-        ))}
-      </div>
-    </div>
-  </article>
-);
+    </article>
+  );
+};
 
 const VideoCard = ({ video }: { video: VideoItem }) => (
   <article className="overflow-hidden rounded-[24px] border border-white/10 bg-[#161a28] shadow-[0_12px_28px_rgba(0,0,0,0.35)]">

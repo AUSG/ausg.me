@@ -3,6 +3,20 @@ module.exports = {
   images: {
     domains: ['placeimg.com'],
   },
+  async redirects() {
+    return [
+      {
+        source: '/activities',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/publicbigchat',
+        destination: '/',
+        permanent: true,
+      },
+    ];
+  },
   output: 'standalone',
   reactStrictMode: true,
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {

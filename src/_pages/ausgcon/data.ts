@@ -5,7 +5,8 @@ export interface AusgconCard {
   imageSrc: string;
   imageWidth: number;
   imageHeight: number;
-  href?: string;
+  eventPageUrl?: string;
+  videoUrl?: string;
 }
 
 export const ausgconCards: AusgconCard[] = [
@@ -16,7 +17,7 @@ export const ausgconCards: AusgconCard[] = [
     imageSrc: '/images/ausgcon/ausgcon-2025.png',
     imageWidth: 1000,
     imageHeight: 500,
-    href: 'https://2025.ausg.me/',
+    eventPageUrl: 'https://2025.ausg.me/',
   },
   {
     year: '2024',
@@ -25,7 +26,7 @@ export const ausgconCards: AusgconCard[] = [
     imageSrc: '/images/ausgcon/ausgcon-2024.png',
     imageWidth: 1000,
     imageHeight: 500,
-    href: 'https://2024.ausg.me/',
+    eventPageUrl: 'https://2024.ausg.me/',
   },
   {
     year: '2023',
@@ -34,5 +35,6 @@ export const ausgconCards: AusgconCard[] = [
     imageSrc: '/images/ausgcon/ausgcon-2023.png',
     imageWidth: 1006,
     imageHeight: 499,
+    videoUrl: 'https://www.youtube.com/channel/UCaN1L9bj7pCuv1PiKzx-2rQ',
   },
 ];
