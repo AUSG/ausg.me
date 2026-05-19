@@ -1,4 +1,4 @@
-import type { CSSProperties } from 'react';
+import { useEffect, useState, type CSSProperties } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 
@@ -16,6 +16,10 @@ interface VideoItem {
 }
 
 const youtubeUrl = 'https://www.youtube.com/channel/UCaN1L9bj7pCuv1PiKzx-2rQ';
+const visibleVideoCount = 4;
+
+const getRandomVideos = (videos: VideoItem[], count: number) =>
+  [...videos].sort(() => Math.random() - 0.5).slice(0, count);
 
 /** 발표 다시보기: 상단 하늘빛 블룸 + 측면 인디고 글로우 + 남색 베이스 */
 const ausgconVideoClusterStyle: CSSProperties = {
@@ -111,14 +115,15 @@ const LatestEventSection = ({ card }: { card: AusgconCard }) => (
         <span className="inline-flex rounded-full bg-white px-4 py-2 text-sm font-semibold text-primary">
           Latest Event
         </span>
-        <h2 className="mt-5 text-[44px] font-semibold leading-[52px] text-slate-950 md:text-[72px] md:leading-[82px]">
+        <h2 className="text-slate-950 mt-5 text-[44px] font-semibold leading-[52px] md:text-[72px] md:leading-[82px]">
           {card.title}
         </h2>
         <p
           className="mx-auto mt-4 max-w-[620px] text-base font-medium leading-7 text-slate-600 md:text-lg md:leading-8"
           style={{ wordBreak: 'keep-all' }}
         >
-          AUSGCON은 “IT에 대한 열정이 있는 사람들을 위한 교류의 장”이라는 컨셉으로 열리는 오프라인 기술 컨퍼런스입니다.
+          AUSGCON은 “IT에 대한 열정이 있는 사람들을 위한 교류의 장”이라는
+          컨셉으로 열리는 오프라인 기술 컨퍼런스입니다.
         </p>
       </div>
 
@@ -171,7 +176,7 @@ const ArchiveCard = ({ card }: { card: AusgconCard }) => (
         </span>
         <EventLink card={card} compact />
       </div>
-      <h3 className="mt-5 text-[24px] font-semibold leading-8 text-slate-950 md:text-[30px] md:leading-[38px]">
+      <h3 className="text-slate-950 mt-5 text-[24px] font-semibold leading-8 md:text-[30px] md:leading-[38px]">
         {card.title}
       </h3>
       <div className="mt-5 flex flex-wrap gap-2">
@@ -199,51 +204,63 @@ const VideoCard = ({ video }: { video: VideoItem }) => (
       allowFullScreen
     />
     <div className="border-t border-white/10 bg-[#12151f] p-5 md:p-6">
-      <div className="text-sm font-semibold text-primary/90">{video.speaker}</div>
-      <h3 className="mt-2 line-clamp-2 text-lg font-semibold leading-7 text-white">
+      <div className="text-sm font-semibold text-primary/90">
+        {video.speaker}
+      </div>
+      <h3 className="line-clamp-2 mt-2 text-lg font-semibold leading-7 text-white">
         {video.title}
       </h3>
     </div>
   </article>
 );
 
-const VideoArchive = ({ videos }: { videos: VideoItem[] }) => (
-  <section
-    className="px-4 py-16 text-white md:py-24"
-    style={ausgconVideoClusterStyle}
-  >
-    <div className="mx-auto max-w-[1360px]">
-      <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-point">
-            Session Videos
-          </p>
-          <h2 className="mt-3 text-[36px] font-semibold leading-[44px] md:text-[56px] md:leading-[64px]">
-            발표 다시보기
-          </h2>
-          <p className="mt-4 max-w-[640px] text-base font-medium leading-7 text-white/62 md:text-lg md:leading-8">
-            지난 AUSGCON을 영상으로 다시 볼 수 있어요.
-          </p>
-        </div>
-        <a
-          href={youtubeUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex w-fit items-center gap-2 rounded-full bg-primary px-5 py-3 font-semibold text-white shadow-[0_4px_14px_rgba(69,77,255,0.35)] transition-colors hover:bg-[#3138e8]"
-        >
-          <YoutubeIcon className="h-5 w-5 fill-white" />
-          유튜브 보러가기
-        </a>
-      </div>
+const VideoArchive = ({ videos }: { videos: VideoItem[] }) => {
+  const [visibleVideos, setVisibleVideos] = useState<VideoItem[]>(() =>
+    videos.slice(0, visibleVideoCount)
+  );
 
-      <div className="mt-10 grid gap-5 md:grid-cols-2">
-        {videos.map(video => (
-          <VideoCard key={video.embedUrl} video={video} />
-        ))}
+  useEffect(() => {
+    setVisibleVideos(getRandomVideos(videos, visibleVideoCount));
+  }, [videos]);
+
+  return (
+    <section
+      className="px-4 py-16 text-white md:py-24"
+      style={ausgconVideoClusterStyle}
+    >
+      <div className="mx-auto max-w-[1360px]">
+        <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-point">
+              Session Videos
+            </p>
+            <h2 className="mt-3 text-[36px] font-semibold leading-[44px] md:text-[56px] md:leading-[64px]">
+              발표 다시보기
+            </h2>
+            <p className="text-white/62 mt-4 max-w-[640px] text-base font-medium leading-7 md:text-lg md:leading-8">
+              지난 AUSGCON을 영상으로 다시 볼 수 있어요.
+            </p>
+          </div>
+          <a
+            href={youtubeUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex w-fit items-center gap-2 rounded-full bg-primary px-5 py-3 font-semibold text-white shadow-[0_4px_14px_rgba(69,77,255,0.35)] transition-colors hover:bg-[#3138e8]"
+          >
+            <YoutubeIcon className="h-5 w-5 fill-white" />
+            유튜브 보러가기
+          </a>
+        </div>
+
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
+          {visibleVideos.map(video => (
+            <VideoCard key={video.embedUrl} video={video} />
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default function AusgconPage() {
   const [latestEvent, ...archiveEvents] = ausgconCards;
@@ -270,8 +287,8 @@ export default function AusgconPage() {
                 className="mx-auto max-w-3xl text-base md:text-lg"
                 style={{ wordBreak: 'keep-all' }}
               >
-                아우쓱은 클라우드 커뮤니티로서, 모두가 지식 공유자가 되어 성장하는
-                공간을 만들어가고 있습니다.
+                아우쓱은 클라우드 커뮤니티로서, 모두가 지식 공유자가 되어
+                성장하는 공간을 만들어가고 있습니다.
                 <br />
                 AUSGCON은 아우쓱이{' '}
                 <strong className="font-extrabold">
@@ -290,7 +307,7 @@ export default function AusgconPage() {
                   <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary/70">
                     Previous Events
                   </p>
-                  <h2 className="mt-3 text-[36px] font-semibold leading-[44px] text-slate-950 md:text-[56px] md:leading-[64px]">
+                  <h2 className="text-slate-950 mt-3 text-[36px] font-semibold leading-[44px] md:text-[56px] md:leading-[64px]">
                     지난 AUSGCON
                   </h2>
                 </div>
