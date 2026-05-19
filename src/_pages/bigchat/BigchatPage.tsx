@@ -93,10 +93,20 @@ const getMatchedSpeakers = (speaker: string): MatchedSpeaker[] =>
       person: peopleByKoreanName.get(name),
     }));
 
-const getSpeakerText = (speaker: MatchedSpeaker) =>
-  speaker.person
-    ? `${speaker.name} *${formatGeneration(speaker.person.year)}`
-    : speaker.name;
+const getSpeakerText = (speaker: MatchedSpeaker) => speaker.name;
+
+const getSpeakerGenerations = (speakers: MatchedSpeaker[]) =>
+  speakers
+    .map(speaker => speaker.person && formatGeneration(speaker.person.year))
+    .filter((generation): generation is string => Boolean(generation));
+
+const getSpeakerGenerationBadge = (speakers: MatchedSpeaker[]) => {
+  const generations = getSpeakerGenerations(speakers);
+
+  if (!generations.length) return null;
+
+  return Array.from(new Set(generations)).join(', ');
+};
 
 const CarouselArrow = ({
   direction,
@@ -190,10 +200,12 @@ const VideoCarousel = ({
   videos,
   title,
   className,
+  compact = false,
 }: {
   videos: VideoItem[];
   title: string;
   className?: string;
+  compact?: boolean;
 }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel();
 
@@ -206,10 +218,15 @@ const VideoCarousel = ({
 
   return (
     <div className={className}>
-      <h3 className="ml-5 mt-8 text-lg font-bold md:ml-8 md:text-2xl lg:mt-16">
+      <h3
+        className={clsx(
+          'ml-5 mt-8 text-lg font-bold md:ml-8 md:text-2xl lg:mt-16',
+          compact && 'ml-0 mt-0 md:ml-0 lg:mt-0'
+        )}
+      >
         {title}
       </h3>
-      <div className="embla mt-3">
+      <div className={clsx('embla mt-3', compact && '[--slide-height:22rem]')}>
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="embla__container touch-pan-x">
             {videos.map(video => (
@@ -244,6 +261,48 @@ const VideoCarousel = ({
     </div>
   );
 };
+
+const BigchatSessionOverview = () => (
+  <section className="mx-auto max-w-[1360px] px-5 pt-10 md:px-8 lg:pt-14">
+    <div className="grid gap-5 rounded-[32px] bg-[#e8edff] p-5 md:p-7 lg:grid-cols-[420px_minmax(0,1fr)] lg:gap-8 lg:p-8">
+      <div className="grid gap-4">
+        {featureCards.map(feature => (
+          <article
+            key={feature.id}
+            className="relative overflow-hidden rounded-[24px] bg-white p-6 shadow-[0_14px_32px_rgba(69,77,255,0.06)]"
+          >
+            <div className="relative z-10 max-w-[320px]">
+              <h4 className="text-xl font-semibold tracking-[-0.02em] text-gray-900">
+                {feature.title}
+              </h4>
+              <p
+                className="mt-3 text-base font-medium leading-7 text-[#525b75]"
+                style={{ wordBreak: 'keep-all' }}
+              >
+                {feature.description}
+              </p>
+            </div>
+            <div className="mt-5 flex justify-end">
+              {feature.id === 'share' ? (
+                <ShareImage className="h-[96px] w-[112px]" />
+              ) : (
+                <BooksImage className="h-[112px] w-[98px]" />
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="min-w-0 rounded-[24px] bg-white p-5 shadow-[0_14px_32px_rgba(69,77,255,0.06)] md:p-6">
+        <VideoCarousel
+          compact
+          videos={videoData.bigChatVideos}
+          title="Latest Big Chat Videos"
+        />
+      </div>
+    </div>
+  </section>
+);
 
 const BigchatHero = ({ title }: { title: ReactNode }) => (
   <div className="h-[280px] bg-primary p-5 md:py-20 md:text-center">
@@ -364,28 +423,41 @@ const YearPagination = ({
 }) => (
   <nav
     aria-label="Bigchat year pagination"
-    className="mt-8 flex justify-center overflow-x-auto px-5 md:mt-12"
+    className="mx-auto mt-12 max-w-[1360px] px-5 md:px-8 lg:mt-16"
   >
-    <div className="flex h-14 min-w-max items-center justify-center gap-[6px] rounded-full border border-[#dde2ff] bg-[rgba(255,255,255,0.94)] px-2 py-1.5 shadow-[0_2px_6px_rgba(69,77,255,0.08),0_12px_28px_rgba(40,49,120,0.12)]">
-      {yearPaginationItems.map(item => {
-        const isActive = item.activeYears.includes(selectedYear);
+    <div className="flex flex-col gap-5 border-t border-[#e0e5ff] pt-8 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary/70">
+          Big Chat Archive
+        </p>
+        <h3 className="mt-2 text-[32px] font-semibold leading-tight tracking-[-0.03em] text-gray-900 md:text-[44px]">
+          연도별 세션
+        </h3>
+      </div>
 
-        return (
-          <button
-            key={item.label}
-            type="button"
-            onClick={() => onSelectYear(item.targetYear)}
-            className={clsx(
-              'h-11 w-20 rounded-full text-[15px] font-semibold leading-5 transition-colors',
-              isActive
-                ? 'bg-gradient-to-r from-[#454dff] to-[#2834e0] text-white shadow-[0_8px_8px_rgba(69,77,255,0.22)]'
-                : 'border border-[rgba(221,226,255,0.72)] bg-[rgba(247,248,255,0.72)] text-[#525b75] hover:text-primary'
-            )}
-          >
-            {item.label}
-          </button>
-        );
-      })}
+      <div className="overflow-x-auto pb-1">
+        <div className="flex min-w-max items-center gap-2 rounded-full border border-[#dfe5ff] bg-white p-1.5 shadow-[0_1px_2px_rgba(69,77,255,0.06)]">
+          {yearPaginationItems.map(item => {
+            const isActive = item.activeYears.includes(selectedYear);
+
+            return (
+              <button
+                key={item.label}
+                type="button"
+                onClick={() => onSelectYear(item.targetYear)}
+                className={clsx(
+                  'h-10 min-w-[78px] rounded-full px-4 text-[15px] font-semibold leading-5 transition-colors',
+                  isActive
+                    ? 'bg-primary text-white shadow-[0_4px_10px_rgba(69,77,255,0.18)]'
+                    : 'text-[#525b75] hover:bg-[#f3f5ff] hover:text-primary'
+                )}
+              >
+                {item.label}
+              </button>
+            );
+          })}
+        </div>
+      </div>
     </div>
   </nav>
 );
@@ -394,25 +466,35 @@ const SpeakerAvatarGroup = ({ speakers }: { speakers: MatchedSpeaker[] }) => {
   const speaker = speakers[0];
 
   return (
-    <div className="flex h-[82px] w-[82px] shrink-0 items-center justify-center md:h-[102px] md:w-[106px]">
-      <div className="relative h-[82px] w-[82px] overflow-hidden rounded-full bg-gray-100 md:h-[102px] md:w-[106px]">
-        <Image
-          src={
-            speaker?.person
-              ? `/people/${speaker.person.photo}`
-              : '/images/profile-1.png'
-          }
-          alt={`${speaker?.name ?? 'Bigchat speaker'} profile`}
-          layout="fill"
-          objectFit="cover"
-        />
-      </div>
+    <div className="flex h-12 min-w-[48px] shrink-0 items-center md:h-14 md:min-w-[56px]">
+      {(speakers.length ? speakers : [speaker]).slice(0, 3).map((item, i) => (
+        <div
+          key={item?.name ?? 'speaker'}
+          className={clsx(
+            'relative h-12 w-12 overflow-hidden rounded-full border-2 border-[#cbd8ff] bg-white md:h-14 md:w-14',
+            i > 0 && '-ml-3'
+          )}
+        >
+          <Image
+            src={
+              item?.person
+                ? `/people/${item.person.photo}`
+                : '/images/profile-1.png'
+            }
+            alt={`${item?.name ?? 'Bigchat speaker'} profile`}
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
+      ))}
     </div>
   );
 };
 
 const TalkCard = ({ talk }: { talk: BigchatTalk }) => {
   const speakers = getMatchedSpeakers(talk.speaker);
+  const speakerGenerations = getSpeakerGenerations(speakers);
+  const speakerGenerationBadge = getSpeakerGenerationBadge(speakers);
   const avatarSpeakers = talk.avatarSpeakers
     ? talk.avatarSpeakers.map(speaker => ({
         name: speaker,
@@ -421,50 +503,82 @@ const TalkCard = ({ talk }: { talk: BigchatTalk }) => {
     : speakers;
 
   return (
-    <article className="grid gap-4 rounded-[20.353px] bg-white p-5 shadow-[0_1.696px_1.696px_rgba(0,0,0,0.05)] md:min-h-[142.487px] md:grid-cols-[106px_minmax(0,1fr)_40px] md:items-center md:gap-x-6 md:px-[27.293px] md:py-5">
-      <SpeakerAvatarGroup speakers={avatarSpeakers} />
-      <div className="min-w-0 md:max-w-[900px]">
-        <h3
-          className="text-[20px] font-bold leading-8 text-black md:text-[25px] md:leading-[47.491px]"
-          style={{ wordBreak: 'keep-all' }}
-        >
-          {talk.title}
-        </h3>
-        <p
-          className="mt-1 text-[18px] font-medium leading-7 text-gray-700 md:mt-0 md:text-[22px] md:leading-[40.707px]"
-          style={{ wordBreak: 'keep-all' }}
-        >
-          {speakers.map(getSpeakerText).join(', ')}
-        </p>
+    <article className="relative overflow-hidden rounded-[24px] bg-[#eef2ff] p-5 text-primary transition-colors hover:bg-[#e7edff] md:min-h-[176px] md:p-6">
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex flex-wrap gap-2">
+          <span className="rounded-full bg-primary px-3 py-1 text-sm font-semibold text-white">
+            {talk.year}
+          </span>
+          {speakerGenerationBadge && (
+            <span className="rounded-full bg-[#dbe3ff] px-3 py-1 text-sm font-semibold text-primary">
+              {speakerGenerationBadge}
+            </span>
+          )}
+        </div>
+        {talk.videoUrl && (
+          <a
+            href={talk.videoUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`${talk.title} YouTube`}
+            className="group flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#dbe3ff] transition-colors hover:bg-primary"
+          >
+            <YoutubeIcon className="h-[18px] w-[18px] fill-primary transition-colors group-hover:fill-white" />
+          </a>
+        )}
       </div>
-      {talk.videoUrl && (
-        <a
-          href={talk.videoUrl}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={`${talk.title} YouTube`}
-          className="flex h-10 w-10 items-center justify-center justify-self-end md:justify-self-center"
-        >
-          <YoutubeIcon className="h-8 w-8 fill-[#ff0000]" />
-        </a>
-      )}
+
+      <h3
+        className="mt-7 text-[22px] font-semibold leading-[31px] tracking-[-0.02em] md:mt-8 md:text-[28px] md:leading-[38px]"
+        style={{ wordBreak: 'keep-all' }}
+      >
+        {talk.title}
+      </h3>
+
+      <div className="mt-8 flex items-end justify-between gap-5 md:mt-10">
+        <div className="flex min-w-0 items-center gap-4">
+          <SpeakerAvatarGroup speakers={avatarSpeakers} />
+          <div className="min-w-0">
+            <p
+              className="text-base font-semibold leading-6 text-primary md:text-lg"
+              style={{ wordBreak: 'keep-all' }}
+            >
+              {speakers.map(getSpeakerText).join(', ')}
+            </p>
+            {speakerGenerations.length > 0 && (
+              <p className="text-sm font-semibold text-primary/60">
+                AUSG {speakerGenerations.join(', ')}
+              </p>
+            )}
+          </div>
+        </div>
+        {talk.videoUrl && (
+          <span
+            aria-hidden="true"
+            className="hidden shrink-0 text-sm font-semibold text-primary/70 md:block"
+          >
+            다시보기
+          </span>
+        )}
+      </div>
     </article>
   );
 };
-
-const BigchatYearBadge = ({ year }: { year: BigchatYear }) => (
-  <div className="mx-auto flex h-14 w-[128px] items-center justify-center rounded-full bg-[#454dff] text-center text-[24px] font-bold leading-8 text-white shadow-[0_10px_18px_-8px_rgba(31,41,115,0.22)] md:h-[72px] md:w-[160.839px] md:text-[28px] md:leading-9">
-    {year}
-  </div>
-);
 
 const BigchatYearSection = ({ year }: { year: BigchatYear }) => {
   const talks = bigchatTalks.filter(talk => talk.year === year);
 
   return (
     <section id={`bigchat-year-${year}`} className="scroll-mt-8">
-      <BigchatYearBadge year={year} />
-      <div className="mt-6 space-y-[27.138px]">
+      <div className="mb-6 flex items-end justify-between gap-4">
+        <h2 className="text-[44px] font-semibold leading-none tracking-[-0.03em] text-primary md:text-[72px]">
+          {year}
+        </h2>
+        <p className="mb-1 rounded-full bg-white px-4 py-2 text-sm font-semibold text-primary/60 md:text-base">
+          {talks.length} sessions
+        </p>
+      </div>
+      <div className="mt-6 grid gap-4 lg:grid-cols-2">
         {talks.map(talk => (
           <TalkCard key={`${talk.speaker}-${talk.title}`} talk={talk} />
         ))}
@@ -474,9 +588,9 @@ const BigchatYearSection = ({ year }: { year: BigchatYear }) => {
 };
 
 const BigchatTalkList = () => (
-  <section className="mx-auto mt-8 max-w-[1248px] px-5 pb-16 md:px-8 lg:mt-[109px] lg:px-0">
-    <div className="rounded-[40.707px] bg-[#dde2ff] p-5 shadow-[0_6.784px_5.089px_rgba(0,0,0,0.1),0_16.961px_12.721px_rgba(0,0,0,0.1)] md:p-[40.706px]">
-      <div className="space-y-[61.138px]">
+  <section className="mx-auto mt-8 max-w-[1360px] px-5 pb-16 md:px-8 lg:mt-12">
+    <div className="rounded-[32px] bg-[#dce4ff] p-5 shadow-[0_18px_40px_rgba(69,77,255,0.12)] md:p-8 lg:p-10">
+      <div className="space-y-16">
         {bigchatYears.map(year => (
           <BigchatYearSection key={year} year={year} />
         ))}
@@ -494,14 +608,7 @@ const BigchatArchiveSection = ({
 }) => (
   <>
     <BigchatHero title="BIG CHAT" />
-    <div className="mx-auto max-w-screen-xl px-5 pt-6 md:px-8 lg:grid lg:grid-cols-[590px_1fr] lg:gap-8 lg:pt-10">
-      <FeatureCards compact />
-      <VideoCarousel
-        className="min-w-0"
-        videos={videoData.bigChatVideos}
-        title="Latest Big Chat Videos"
-      />
-    </div>
+    <BigchatSessionOverview />
     <YearPagination selectedYear={selectedYear} onSelectYear={onSelectYear} />
     <BigchatTalkList />
   </>
