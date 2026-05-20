@@ -86,7 +86,7 @@ const publicBigchatVideos: VideoItem[] = publicBigchat
   )
   .map(item => ({
     speaker: item.speaker,
-    title: `PUBLIC BIGCHAT: ${item.title} - ${item.speaker}`,
+    title: `Public Bigchat: ${item.title} - ${item.speaker}`,
     embedUrl: getYoutubeEmbedUrl(item.videoUrl),
   }));
 
@@ -315,7 +315,7 @@ const BigchatSessionOverview = () => (
         <VideoCarousel
           compact
           videos={videoData.bigChatVideos}
-          title="Latest Big Chat Videos"
+          title="Latest Bigchat Videos"
         />
       </div>
     </div>
@@ -344,7 +344,7 @@ const PublicBigchatCardContent = ({ item }: { item: PublicBigchat }) => (
     </div>
     <div className="absolute left-[8%] right-[8%] top-[43%] h-[17%] bg-[#e7e7e7]" />
     <div className="absolute left-1/2 top-[51%] w-[84%] -translate-x-1/2 -translate-y-1/2 text-center text-[20px] font-extrabold leading-[26px] text-[#626262] lg:text-[24px] lg:leading-[30px]">
-      Public BigChat
+      Public Bigchat
     </div>
     <div className="absolute inset-x-1 bottom-1 max-h-[38%] overflow-hidden rounded-[20px] bg-gray-900 bg-opacity-70 p-2.5 text-white">
       <div className="text-xs">{item.speaker}</div>
@@ -388,7 +388,7 @@ const PublicBigchatCard = ({ item }: { item: PublicBigchat }) => {
 const PublicBigchatGrid = () => (
   <>
     <h3 className="ml-5 mt-8 text-lg font-bold md:ml-8 md:text-2xl lg:mt-16">
-      Public Big Chat Featured
+      Public Bigchat Featured
     </h3>
     <div className="mt-3 flex overflow-x-auto px-5 pb-4 md:mt-12 md:grid md:grid-cols-[repeat(auto-fit,minmax(190px,1fr))] md:gap-x-8 md:gap-y-8 md:overflow-visible md:px-8">
       {publicBigchat.map(item => (
@@ -418,13 +418,13 @@ const YoutubeLink = () => (
 
 const PublicBigchatSection = () => (
   <>
-    <BigchatHero title="PUBLIC BIG CHAT" />
+    <BigchatHero title="Public Bigchat" />
 
     <div className="lg:mx-auto lg:max-w-screen-xl">
       <FeatureCards />
       <VideoCarousel
         videos={publicBigchatVideos}
-        title="Last Public Big Chat Video"
+        title="Last Public Bigchat Video"
       />
       <PublicBigchatGrid />
       <YoutubeLink />
@@ -446,7 +446,7 @@ const YearPagination = ({
     <div className="flex flex-col gap-5 border-t border-[#e0e5ff] pt-8 md:flex-row md:items-end md:justify-between">
       <div>
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary/70">
-          Big Chat Archive
+          Bigchat Archive
         </p>
         <h3 className="mt-2 text-[32px] font-semibold leading-tight tracking-[-0.03em] text-gray-900 md:text-[44px]">
           연도별 세션
@@ -634,7 +634,7 @@ const BigchatArchiveSection = ({
   onSelectYear: (year: BigchatYear) => void;
 }) => (
   <>
-    <BigchatHero title="BIG CHAT" />
+    <BigchatHero title="Bigchat" />
     <BigchatSessionOverview />
     <YearPagination selectedYear={selectedYear} onSelectYear={onSelectYear} />
     <BigchatTalkList />
