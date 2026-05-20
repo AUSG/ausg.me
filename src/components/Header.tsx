@@ -63,24 +63,24 @@ export default function Header({ theme = 'white' }: HeaderProps) {
               )}
             </a>
           </Link>
-          <Link href="/bigchat">
+          <Link href="/people">
             <a
               className={clsx(
                 theme === 'white' ? 'text-primary' : 'text-white',
                 'mr-6 hidden items-center p-3 font-bold lg:flex'
               )}
             >
-              Bigchat
+              People
             </a>
           </Link>
-          <Link href="/people">
+          <Link href="/bigchat">
             <a
               className={clsx(
                 theme === 'white' ? 'text-primary' : 'text-white',
                 'mr-4 hidden items-center p-3 font-bold lg:flex'
               )}
             >
-              People
+              BIGCHAT
             </a>
           </Link>
           {/* {isApplyPeriod && (
@@ -175,18 +175,18 @@ export default function Header({ theme = 'white' }: HeaderProps) {
             ))}
           </div>
           <nav className="mt-[50px] flex flex-col gap-4">
-            <Link href="/bigchat">
-              <a className="flex items-center">
-                <span className="mr-[8px] text-[24px] font-bold text-white">
-                  Bigchat
-                </span>
-                <ArrowRight width="36" height="36" fill="white" />
-              </a>
-            </Link>
             <Link href="/people">
               <a className="flex items-center">
                 <span className="mr-[8px] text-[24px] font-bold text-white">
                   People
+                </span>
+                <ArrowRight width="36" height="36" fill="white" />
+              </a>
+            </Link>
+            <Link href="/bigchat">
+              <a className="flex items-center">
+                <span className="mr-[8px] text-[24px] font-bold text-white">
+                  BIGCHAT
                 </span>
                 <ArrowRight width="36" height="36" fill="white" />
               </a>
