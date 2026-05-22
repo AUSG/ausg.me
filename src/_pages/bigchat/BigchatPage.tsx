@@ -1,6 +1,5 @@
 import { useState, type ReactNode } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 import clsx from 'clsx';
 import useEmblaCarousel from 'embla-carousel-react';
 
@@ -11,6 +10,7 @@ import ShareImage from '@/public/images/share.svg';
 import { getPeopleData, type Person } from '@/data/people';
 import videoData from '@/data/videos.json';
 import Header from '@/src/components/Header';
+import ProfileAvatar from '@/src/components/ProfileAvatar';
 import { usePrevNextButtons } from '@/src/_pages/hooks/usePrevNextButton';
 import BigChatBackground from '@/src/_pages/index/components/BigChatBackground';
 import {
@@ -494,24 +494,20 @@ const SpeakerAvatarGroup = ({ speakers }: { speakers: MatchedSpeaker[] }) => {
         keyCounts.set(keyBase, keyCount + 1);
 
         return (
-          <div
+          <ProfileAvatar
             key={`${keyBase}-${keyCount}`}
+            src={
+              item?.person
+                ? `/people/${item.person.photo}`
+                : '/images/profile-1.png'
+            }
+            alt={`${item?.name ?? 'Bigchat speaker'} profile`}
+            size="md"
             className={clsx(
-              'relative h-12 w-12 overflow-hidden rounded-full border-2 border-[#cbd8ff] bg-white md:h-14 md:w-14',
+              'border-2 border-[#cbd8ff] bg-white',
               i > 0 && '-ml-3'
             )}
-          >
-            <Image
-              src={
-                item?.person
-                  ? `/people/${item.person.photo}`
-                  : '/images/profile-1.png'
-              }
-              alt={`${item?.name ?? 'Bigchat speaker'} profile`}
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
+          />
         );
       })}
     </div>

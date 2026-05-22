@@ -1,5 +1,6 @@
 import React from 'react';
-import Image from 'next/image';
+
+import ProfileAvatar from '@/src/components/ProfileAvatar';
 import QuoteIcon from 'public/icons/quote.svg';
 
 interface QuoteCardType {
@@ -22,9 +23,12 @@ export default function QuoteCard({
         {content}
       </div>
       <div className="mt-[24px] flex items-center xl:mt-[32px]">
-        <div className="mr-[8px] h-[48px] w-[48px] shrink-0 overflow-hidden rounded-full xl:mr-[30px] xl:h-[60px] xl:w-[60px]">
-          <Image src={imagePath} width="100%" height="100%" alt="" />
-        </div>
+        <ProfileAvatar
+          src={imagePath}
+          alt=""
+          size="sm"
+          className="mr-[8px] xl:mr-[30px]"
+        />
         <div className="text-[14px]">
           <strong>{name}</strong>
           <br />
