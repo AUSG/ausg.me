@@ -90,7 +90,7 @@ const QUOTES = [
       '꿈을 위해 무모하게 도전하는 대학생들이 모이는 곳. Cloud라는 관심사 아래 다양하고 구체적인, 가끔은 이상한 경험을 나누는 곳. 여기 AUSG. 낭만적이지 않나요?',
     name: '우수연',
     profile: 'AUSG 4기, IBM Technology Engineer',
-    imagePath: '/people/suyeonwoo.jpg',
+    imagePath: '/people/SuyeonWoo.jpg',
   },
   {
     content:

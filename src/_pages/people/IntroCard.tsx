@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import Image from 'next/image';
 
+import ProfileAvatar from '@/src/components/ProfileAvatar';
 import QuoteIcon from 'public/icons/quote.svg';
 import GithubIcon from 'public/icons/github.svg';
 import LinkedinIcon from 'public/icons/linkedin.svg';
@@ -40,15 +41,12 @@ const IntroCard: FC<IntroCardProps> = ({
           />
         </div>
       )}
-      <div className="relative mr-3 h-12 flex-shrink-0 basis-12 overflow-hidden rounded-full lg:mr-6 lg:h-24 lg:basis-24 ">
-        <Image
-          src={`/people/${photo}`}
-          alt={`${name_ko}_사진`}
-          width={96}
-          height={96}
-          objectFit="cover"
-        />
-      </div>
+      <ProfileAvatar
+        src={`/people/${photo}`}
+        alt={`${name_ko}_사진`}
+        size="lg"
+        className="mr-3 lg:mr-6"
+      />
       <div>
         <div className="flex items-center">
           <h2 className="mr-3 text-base font-semibold lg:mr-5 lg:text-2xl">
