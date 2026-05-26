@@ -1,39 +1,23 @@
 {
   "_README": {
-    "photoDirectory": "public/images/activities/",
-    "howToReplace": "각 섹션의 photos 배열에 파일명만 적으면 자동으로 public/images/activities/<section>/<file> 에서 불러옵니다. 파일을 그 폴더에 넣고 파일명만 바꾸세요.",
-    "exampleFilename": "aws-summit-2024-01.jpg"
+    "photoDirectory": "public/activities/",
+    "howToReplace": "각 섹션의 photos 배열에 파일명만 적으면 자동으로 public/activities/<file> 에서 불러옵니다. 파일을 그 폴더에 넣고 파일명만 바꾸세요.",
+    "exampleFilename": "global00.jpg"
   },
   "global": {
     "index": "01",
     "label": "GLOBAL",
     "title": "국경 없는 클라우드 커뮤니티",
-    "description": "AUSG는 국내 최대 AWS 컨퍼런스인 AWS Summit과 일본 AWS 사용자 그룹 JAWS에 참여하며 글로벌 커뮤니티와 호흡합니다.",
-    "events": [
-      {
-        "name": "AWS Summit Seoul",
-        "tag": "Domestic Conference",
-        "year": "2024 · 2025",
-        "summary": "국내 최대 규모 AWS 행사에서 멤버들이 함께 부스를 운영하고 세션에 참여합니다.",
-        "photos": [
-          "aws-summit-01.jpg",
-          "aws-summit-02.jpg",
-          "aws-summit-03.jpg",
-          "aws-summit-04.jpg"
-        ]
-      },
-      {
-        "name": "JAWS DAYS",
-        "tag": "International Exchange",
-        "year": "2025 · Tokyo",
-        "summary": "일본 JAWS-UG와 교류하며 다른 나라 AWS 커뮤니티의 문화를 직접 경험합니다.",
-        "photos": [
-          "jaws-01.jpg",
-          "jaws-02.jpg",
-          "jaws-03.jpg",
-          "jaws-04.jpg"
-        ]
-      }
+    "description": "기술은 경계가 없고, AUSG의 호기심도 마찬가지예요. 세계의 클라우드 커뮤니티와 소통해요.",
+    "summary": "Japan AWS Jr. Champions와의 기술 교류, 2026 AWS Summit 발표, 그리고 AWS re:Invent 참여까지. AUSG는 국경을 넘어 글로벌 클라우드 커뮤니티와 함께 호흡합니다.",
+    "photos": [
+      { "file": "global00.jpg", "caption": "AWS Summit Seoul", "link": "" },
+      { "file": "global01.jpeg", "caption": "Japan AWS Jr. Champions", "link": "" },
+      { "file": "global02.jpg", "caption": "AWS re:Invent", "link": "" },
+      { "file": "global03.png", "caption": "AWS Summit 발표", "link": "" },
+      { "file": "global04.jpeg", "caption": "글로벌 교류", "link": "" },
+      { "file": "global05.JPG", "caption": "글로벌 커뮤니티", "link": "" },
+      { "file": "global06.jpg", "caption": "Global", "link": "" }
     ]
   },
   "techStudy": {
@@ -46,35 +30,35 @@
         "title": "AWS 자격증",
         "subtitle": "SAA · SAP · DOP",
         "description": "정기 스터디로 합격까지 함께 달려요.",
-        "photo": "study-aws.jpg",
+        "photo": "study00.png",
         "size": "large"
       },
       {
         "title": "Cloud Native",
         "subtitle": "Kubernetes · Service Mesh",
         "description": "현업의 분산 시스템을 직접 다뤄봐요.",
-        "photo": "study-k8s.jpg",
+        "photo": "study01.jpg",
         "size": "medium"
       },
       {
         "title": "MLOps",
         "subtitle": "SageMaker · Bedrock",
         "description": "모델을 만드는 것에서 운영하는 것까지.",
-        "photo": "study-mlops.jpg",
+        "photo": "study02.png",
         "size": "medium"
       },
       {
         "title": "Serverless & Edge",
         "subtitle": "Lambda · CloudFront",
         "description": "서버 없이 빠르게 만드는 법.",
-        "photo": "study-serverless.jpg",
+        "photo": "study03.jpg",
         "size": "medium"
       },
       {
         "title": "Infra as Code",
         "subtitle": "Terraform · CDK",
         "description": "코드로 인프라를 정의하는 문화.",
-        "photo": "study-iac.jpg",
+        "photo": "study04.PNG",
         "size": "medium"
       }
     ]
@@ -85,68 +69,32 @@
     "title": "함께 모이고, 함께 떠나는",
     "description": "새 기수의 첫 만남부터 멤버들끼리 떠나는 해외 여행까지. AUSG의 진짜 모습은 화면 너머의 순간들에 담겨 있어요.",
     "photos": [
-      {
-        "file": "warmup-01.jpg",
-        "caption": "9기 Warm-up @ 서울"
-      },
-      {
-        "file": "warmup-02.jpg",
-        "caption": "팀 빌딩 세션"
-      },
-      {
-        "file": "warmup-03.jpg",
-        "caption": "멤버들과 도쿄 여행"
-      },
-      {
-        "file": "warmup-04.jpg",
-        "caption": "AWS Summit Tokyo 동행"
-      },
-      {
-        "file": "warmup-05.jpg",
-        "caption": "여름 MT"
-      },
-      {
-        "file": "warmup-06.jpg",
-        "caption": "단체 사진"
-      }
+      { "file": "activity01.jpeg", "caption": "9기 Warm-up" },
+      { "file": "activity02.jpeg", "caption": "팀 빌딩 세션", "objectPosition": "bottom" },
+      { "file": "activity03.png", "caption": "멤버들과 도쿄 여행" },
+      { "file": "activity04.jpg", "caption": "AWS Summit Tokyo 동행" },
+      { "file": "activity05.png", "caption": "여름 MT" },
+      { "file": "activity06.jpg", "caption": "단체 사진" },
+      { "file": "activity07.jpg", "caption": "연말 파티" },
+      { "file": "activity08.jpg", "caption": "번개 모임" },
+      { "file": "activity09.png", "caption": "송년회" }
     ]
   },
   "coffeechat": {
     "index": "04",
-    "label": "COFFEECHAT BUDDY",
-    "title": "1:1로 마주 앉는 시간",
-    "description": "AUSG에서는 매달 랜덤하게 매칭된 멤버와 커피챗을 합니다. 다른 기수, 다른 전공, 다른 회사. 작은 자리에서 시작되는 가장 큰 연결.",
+    "label": "BUDDY",
+    "title": "기수를 넘어 이어지는 사이",
+    "description": "다른 기수, 다른 회사, 다른 분야여도 상관없어요. 매달 매칭되는 새 버디와의 1:1 자리에서 일과 커리어, 그리고 그 너머의 이야기까지 자연스럽게 흘러요. AUSG에서 정보가 오가고 사이가 가까워지는 가장 자연스러운 방식.",
     "pairs": [
-      {
-        "photo": "coffeechat-01.jpg",
-        "people": "지수 × 민혁",
-        "note": "8기 × 3기"
-      },
-      {
-        "photo": "coffeechat-02.jpg",
-        "people": "유경 × 보겸",
-        "note": "9기 × 8기"
-      },
-      {
-        "photo": "coffeechat-03.jpg",
-        "people": "현숙 × 대현",
-        "note": "10기 × 9기"
-      },
-      {
-        "photo": "coffeechat-04.jpg",
-        "people": "준석 × 윤지",
-        "note": "10기 × 9기"
-      },
-      {
-        "photo": "coffeechat-05.jpg",
-        "people": "정민 × 지완",
-        "note": "9기 × 8기"
-      },
-      {
-        "photo": "coffeechat-06.jpg",
-        "people": "성혁 × 진수",
-        "note": "3기 × 3기"
-      }
+      { "photo": "crew01.jpg" },
+      { "photo": "crew02.jpg" },
+      { "photo": "crew03.png" },
+      { "photo": "crew04.jpg" },
+      { "photo": "crew05.jpeg" },
+      { "photo": "crew06.jpg" },
+      { "photo": "crew07.jpg" },
+      { "photo": "crew08.jpg" },
+      { "photo": "crew09.jpg" }
     ]
   }
 }

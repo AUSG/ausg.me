@@ -1,19 +1,17 @@
-import type { CSSProperties } from 'react';
+import { useEffect } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 
 import activities from '@/data/activities.json';
 import { usePrevNextButtons } from '../hooks/usePrevNextButton';
-import { onPhotoError, photoPath } from './utils';
+import { onPhotoContextMenu, onPhotoError, photoPath } from './utils';
 
-const sliderStyle = {
-  '--slide-size': '78%',
-} as CSSProperties;
+const AUTOPLAY_INTERVAL = 4000;
 
 const WarmUpSection = () => {
   const { index, label, title, description, photos } = activities.warmUp;
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: 'start',
-    containScroll: 'trimSnaps',
+    loop: true,
     dragFree: true,
   });
   const {
@@ -23,10 +21,32 @@ const WarmUpSection = () => {
     onNextButtonClick,
   } = usePrevNextButtons(emblaApi);
 
+  useEffect(() => {
+    if (!emblaApi) return undefined;
+    let paused = false;
+    const root = emblaApi.rootNode();
+    const onEnter = () => {
+      paused = true;
+    };
+    const onLeave = () => {
+      paused = false;
+    };
+    root.addEventListener('mouseenter', onEnter);
+    root.addEventListener('mouseleave', onLeave);
+    const id = setInterval(() => {
+      if (!paused) emblaApi.scrollNext();
+    }, AUTOPLAY_INTERVAL);
+    return () => {
+      clearInterval(id);
+      root.removeEventListener('mouseenter', onEnter);
+      root.removeEventListener('mouseleave', onLeave);
+    };
+  }, [emblaApi]);
+
   return (
-    <section id="warm-up" className="bg-primary py-16 text-white lg:py-24">
+    <section id="warm-up" className="bg-primary py-12 text-white lg:py-16">
       <div className="mx-auto max-w-screen-xl px-5 lg:px-8">
-        <header className="mb-10 flex flex-col gap-3 lg:mb-14 lg:flex-row lg:items-end lg:justify-between">
+        <header className="mb-8 flex flex-col gap-3 lg:mb-10 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <div className="flex items-baseline gap-3 text-white/60">
               <span className="font-mono text-sm lg:text-base">{index}</span>
@@ -35,7 +55,7 @@ const WarmUpSection = () => {
               </span>
             </div>
             <h2
-              className="mt-3 max-w-2xl text-3xl font-bold leading-tight lg:text-5xl"
+              className="mt-3 max-w-2xl text-2xl font-bold leading-tight lg:text-4xl"
               style={{ wordBreak: 'keep-all' }}
             >
               {title}
@@ -50,28 +70,32 @@ const WarmUpSection = () => {
         </header>
       </div>
 
-      <div
-        className="embla pl-5 lg:pl-[max(2rem,calc((100vw-1280px)/2+2rem))]"
-        style={sliderStyle}
-      >
+      <div className="embla [--slide-size:80%] md:[--slide-size:50%] lg:[--slide-size:38%]">
         <div className="overflow-hidden" ref={emblaRef}>
-          <div className="embla__container touch-pan-x">
+          <div className="embla__container cursor-grab touch-pan-x select-none active:cursor-grabbing">
             {photos.map((photo, i) => (
               <div className="embla__slide" key={photo.file}>
                 <figure className="flex flex-col">
-                  <div className="aspect-[3/2] overflow-hidden rounded-3xl bg-white/10">
+                  <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-white/10">
                     <img
-                      src={photoPath('warmup', photo.file)}
+                      src={photoPath(photo.file)}
                       onError={onPhotoError}
+                      onContextMenu={onPhotoContextMenu}
                       alt={photo.caption}
+                      draggable={false}
                       className="h-full w-full object-cover"
+                      style={
+                        'objectPosition' in photo
+                          ? { objectPosition: photo.objectPosition }
+                          : undefined
+                      }
                     />
                   </div>
-                  <figcaption className="mt-4 flex items-baseline justify-between gap-4 text-white/80">
-                    <span className="text-sm font-semibold lg:text-base">
+                  <figcaption className="mt-3 flex items-baseline justify-between gap-3 text-white/80">
+                    <span className="text-xs font-semibold lg:text-sm">
                       {photo.caption}
                     </span>
-                    <span className="font-mono text-xs">
+                    <span className="font-mono text-[10px] lg:text-xs">
                       {String(i + 1).padStart(2, '0')} /{' '}
                       {String(photos.length).padStart(2, '0')}
                     </span>
@@ -83,7 +107,7 @@ const WarmUpSection = () => {
         </div>
       </div>
 
-      <div className="mx-auto mt-8 flex max-w-screen-xl items-center justify-end gap-3 px-5 lg:mt-10 lg:px-8">
+      <div className="mx-auto mt-6 flex max-w-screen-xl items-center justify-end gap-3 px-5 lg:mt-8 lg:px-8">
         <button
           type="button"
           onClick={onPrevButtonClick}

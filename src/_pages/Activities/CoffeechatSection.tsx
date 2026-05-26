@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
 import activities from '@/data/activities.json';
-import { onPhotoError, photoPath } from './utils';
+import { onPhotoContextMenu, onPhotoError, photoPath } from './utils';
 
 const ROTATIONS = [
   '-rotate-2',
@@ -50,23 +50,17 @@ const CoffeechatSection = () => {
                 ROTATIONS[i % ROTATIONS.length]
               )}
             >
-              <div className="bg-white p-2.5 shadow-[0_8px_24px_rgba(20,20,20,0.08)] lg:p-3">
+              <div className="bg-white p-2.5 pb-8 shadow-[0_8px_24px_rgba(20,20,20,0.08)] lg:p-3 lg:pb-10">
                 <div className="aspect-square overflow-hidden bg-gray-100">
                   <img
-                    src={photoPath('coffeechat', pair.photo)}
+                    src={photoPath(pair.photo)}
                     onError={onPhotoError}
-                    alt={pair.people}
+                    onContextMenu={onPhotoContextMenu}
+                    alt=""
+                    draggable={false}
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <figcaption className="px-1 pb-1 pt-3 lg:pt-4">
-                  <p className="text-sm font-bold text-gray-900 lg:text-base">
-                    {pair.people}
-                  </p>
-                  <p className="font-mono mt-0.5 text-[10px] uppercase tracking-wider text-gray-900/50 lg:text-xs">
-                    {pair.note}
-                  </p>
-                </figcaption>
               </div>
             </figure>
           ))}
