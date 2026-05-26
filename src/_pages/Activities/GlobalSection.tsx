@@ -81,7 +81,7 @@ const GlobalSection = () => {
             </h2>
           </div>
           <p
-            className="max-w-md text-sm leading-relaxed text-gray-900/60 lg:text-base"
+            className="max-w-md whitespace-pre-line text-sm leading-relaxed text-gray-900/60 lg:text-right lg:text-base"
             style={{ wordBreak: 'keep-all' }}
           >
             {description}
@@ -140,7 +140,7 @@ const GlobalSection = () => {
 
           <div className="flex flex-col justify-between rounded-3xl bg-primary p-6 text-white lg:p-8">
             <p
-              className="text-base leading-relaxed text-white/90 lg:text-lg"
+              className="whitespace-pre-line text-base leading-relaxed text-white/90 lg:text-lg"
               style={{ wordBreak: 'keep-all' }}
             >
               {summary}

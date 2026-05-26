@@ -62,7 +62,7 @@ const WarmUpSection = () => {
             </h2>
           </div>
           <p
-            className="max-w-md text-sm leading-relaxed text-white/75 lg:text-base"
+            className="max-w-md whitespace-pre-line text-sm leading-relaxed text-white/75 lg:text-right lg:text-base"
             style={{ wordBreak: 'keep-all' }}
           >
             {description}
