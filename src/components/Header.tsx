@@ -105,6 +105,16 @@ export default function Header({ theme = 'white' }: HeaderProps) {
               AUSGCON
             </a>
           </Link>
+          <Link href="/activities">
+            <a
+              className={clsx(
+                theme === 'white' ? 'text-primary' : 'text-white',
+                'mr-4 hidden items-center p-3 font-bold lg:flex'
+              )}
+            >
+              Activities
+            </a>
+          </Link>
           <Link href="/contact">
             <a
               className={clsx(
@@ -205,6 +215,14 @@ export default function Header({ theme = 'white' }: HeaderProps) {
               <a className="flex items-center">
                 <span className="mr-[8px] text-[24px] font-bold text-white">
                   AUSGCON
+                </span>
+                <ArrowRight width="36" height="36" fill="white" />
+              </a>
+            </Link>
+            <Link href="/activities">
+              <a className="flex items-center">
+                <span className="mr-[8px] text-[24px] font-bold text-white">
+                  Activities
                 </span>
                 <ArrowRight width="36" height="36" fill="white" />
               </a>
