@@ -56,7 +56,6 @@ const CoffeechatSection = () => {
                     file={pair.photo}
                     alt=""
                     className="h-full w-full object-cover"
-                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 33vw, 50vw"
                   />
                 </div>
               </div>

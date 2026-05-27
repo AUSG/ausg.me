@@ -86,7 +86,6 @@ const WarmUpSection = () => {
                           ? photo.objectPosition
                           : undefined
                       }
-                      sizes="(min-width: 1024px) 38vw, (min-width: 768px) 50vw, 80vw"
                     />
                   </div>
                   <figcaption className="mt-3 flex items-baseline justify-between gap-3 text-white/80">
