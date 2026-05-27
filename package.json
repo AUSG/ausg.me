@@ -3,12 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "node scripts/run-next.js dev",
+    "build": "node scripts/run-next.js build",
+    "start": "node scripts/run-next.js start",
     "lint": "next lint",
     "format": "prettier --ignore-unknown --write 'src/**/*.{js,jsx,ts,tsx}'",
     "test": "jest"
+  },
+  "engines": {
+    "node": ">=16 <19"
   },
   "dependencies": {
     "@types/react-modal": "^3.13.1",
