@@ -2,7 +2,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 
 import activities from '@/data/activities.json';
 import { usePrevNextButtons } from '../hooks/usePrevNextButton';
-import { onPhotoContextMenu, onPhotoError, photoPath } from './utils';
+import ActivityImage from './ActivityImage';
 
 interface Photo {
   file: string;
@@ -16,12 +16,10 @@ interface SlideProps {
 
 const Slide = ({ photo }: SlideProps) => {
   const img = (
-    <img
-      src={photoPath(photo.file)}
-      onError={onPhotoError}
-      onContextMenu={onPhotoContextMenu}
+    <ActivityImage
+      file={photo.file}
       alt={photo.caption}
-      draggable={false}
+      sizes="(min-width: 1024px) 710px, 100vw"
       className="h-full w-full object-cover"
     />
   );
