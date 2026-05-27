@@ -30,7 +30,7 @@
         "title": "2026 상반기 스터디",
         "subtitle": "기술 · 취업 · 연구",
         "description": "관심에 맞는 스터디를 함께해요",
-        "photo": "study00.png",
+        "photo": "study00.webp",
         "size": "large"
       },
       {
@@ -51,14 +51,14 @@
         "title": "Algorithm",
         "subtitle": "Coding Test · 자료구조",
         "description": "코딩 테스트와 알고리즘을 공부해요",
-        "photo": "study03.jpg",
+        "photo": "study03.webp",
         "size": "medium"
       },
       {
         "title": "Tech · Language",
         "subtitle": "Java · Go",
         "description": "원하는 모든 언어를 익혀요",
-        "photo": "study04.PNG",
+        "photo": "study04.webp",
         "size": "medium"
       }
     ]
@@ -86,15 +86,15 @@
     "title": "기수를 넘어 이어지는 사이",
     "description": "다른 기수, 다른 회사, 다른 분야여도 상관없어요 \n 일과 커리어, 그리고 그 너머까지 기수 상관없이 소통해요",
     "pairs": [
-      { "photo": "crew01.jpg" },
-      { "photo": "crew02.jpg" },
-      { "photo": "crew03.png" },
-      { "photo": "crew04.jpg" },
-      { "photo": "crew05.jpeg" },
-      { "photo": "crew06.jpg" },
-      { "photo": "crew07.jpg" },
+      { "photo": "crew01.webp" },
+      { "photo": "crew02.webp" },
+      { "photo": "crew03.webp" },
+      { "photo": "crew04.webp" },
+      { "photo": "crew05.webp" },
+      { "photo": "crew06.webp" },
+      { "photo": "crew07.webp" },
       { "photo": "crew08.jpg" },
-      { "photo": "crew09.jpeg" }
+      { "photo": "crew09.webp" }
     ]
   }
 }

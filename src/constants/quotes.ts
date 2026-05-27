@@ -8,7 +8,7 @@ const QUOTES = [
       '슥 : 슥별한 날들이 계속 됩니다',
     name: '길상혁',
     profile: 'AUSG 8기, 슈퍼진',
-    imagePath: '/people/sanghyuk.gil.jpg',
+    imagePath: '/people/sanghyuk.gil.webp',
   },
   {
     content:
@@ -55,7 +55,7 @@ const QUOTES = [
       '기술만 보며 달리던 내게 세상을 바라보는 혜안을 선물해 준 동아리입니다. 다양한 분야에서 최고를 달리고 있는 멤버들과 함께 성장할 수 있어 행복합니다 :)',
     name: '송승호',
     profile: 'AUSG 7기, AWS AI-Engineering Community Builder',
-    imagePath: '/people/seunghosong.jpg',
+    imagePath: '/people/seunghosong.webp',
   },
   {
     content:
@@ -145,7 +145,7 @@ const QUOTES = [
     content: '"인생은 멀리서 보면 희극이고 가까이서 보면 비극이다"',
     name: '김민태',
     profile: 'AUSG 4기, Woowa Bros.',
-    imagePath: '/people/mintae.kim.jpg',
+    imagePath: '/people/mintae.kim.webp',
   },
   {
     content:
