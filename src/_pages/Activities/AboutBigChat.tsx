@@ -45,9 +45,9 @@ const AboutBigChat = () => {
                   우리 모두가 지식 공유자
                 </h4>
                 <p className="mt-1.5 text-sm" style={{ wordBreak: 'keep-all' }}>
-                  AUSG에서는 모두가 빅챗에 참여해 저마다의 클라우드 개발 경험과
-                  노하우를 멤버들과 공유해요. AUSG에 합류하는 그 순간부터,
-                  모두가 지식 공유자가 되는거죠.
+                  AUSG에서는 모두가 BIGCHAT에 참여해 저마다의 클라우드 개발
+                  경험과 노하우를 멤버들과 공유해요. AUSG에 합류하는 그
+                  순간부터, 모두가 지식 공유자가 되는거죠.
                 </p>
               </div>
               <div className="mt-4 -mb-4 flex justify-end">
@@ -76,7 +76,7 @@ const AboutBigChat = () => {
             <div className="mr-6">
               <h4 className="text-xl font-semibold">우리 모두가 지식 공유자</h4>
               <p className="mt-3 text-base" style={{ wordBreak: 'keep-all' }}>
-                AUSG에서는 모두가 빅챗에 참여해 저마다의 클라우드 개발 경험과
+                AUSG에서는 모두가 BIGCHAT에 참여해 저마다의 클라우드 개발 경험과
                 노하우를 멤버들과 공유해요. AUSG에 합류하는 순간부터, 모두가
                 지식 공유자가 되는거죠.
               </p>
