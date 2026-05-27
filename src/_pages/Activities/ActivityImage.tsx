@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState } from 'react';
-import Image from 'next/image';
 
 import { onPhotoContextMenu, photoPath, PHOTO_PLACEHOLDER } from './utils';
 
@@ -10,7 +10,6 @@ interface ActivityImageProps {
   objectPosition?: string;
   priority?: boolean;
   loading?: 'eager' | 'lazy';
-  sizes: string;
 }
 
 const ActivityImage = ({
@@ -20,21 +19,15 @@ const ActivityImage = ({
   objectPosition,
   priority = false,
   loading,
-  sizes,
 }: ActivityImageProps) => {
   const [src, setSrc] = useState(photoPath(file));
 
   return (
-    <Image
+    <img
       src={src}
       alt={alt}
-      layout="fill"
-      objectFit="cover"
-      objectPosition={objectPosition}
-      sizes={sizes}
-      quality={78}
-      priority={priority}
-      loading={loading}
+      loading={loading ?? (priority ? 'eager' : 'lazy')}
+      decoding="async"
       onError={() =>
         setSrc(current =>
           current === PHOTO_PLACEHOLDER ? current : PHOTO_PLACEHOLDER
@@ -43,6 +36,7 @@ const ActivityImage = ({
       onContextMenu={onPhotoContextMenu}
       draggable={false}
       className={className}
+      style={objectPosition ? { objectPosition } : undefined}
     />
   );
 };

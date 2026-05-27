@@ -24,7 +24,6 @@ const Slide = ({ photo, priority = false, loading }: SlideProps) => {
       className="h-full w-full object-cover"
       priority={priority}
       loading={loading}
-      sizes="(min-width: 1024px) 56vw, 100vw"
     />
   );
 
