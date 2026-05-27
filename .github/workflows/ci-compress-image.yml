@@ -6,6 +6,9 @@ on:
       - public/people/*.jpg
       - public/people/*.jpeg
       - public/people/*.png
+      - public/activities/*.jpg
+      - public/activities/*.jpeg
+      - public/activities/*.png
 
 jobs:
   ci:
