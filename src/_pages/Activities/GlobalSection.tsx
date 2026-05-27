@@ -2,7 +2,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 
 import activities from '@/data/activities.json';
 import { usePrevNextButtons } from '../hooks/usePrevNextButton';
-import { onPhotoContextMenu, onPhotoError, photoPath } from './utils';
+import ActivityImage from './ActivityImage';
 
 interface Photo {
   file: string;
@@ -11,18 +11,18 @@ interface Photo {
 }
 
 interface SlideProps {
+  priority?: boolean;
   photo: Photo;
 }
 
-const Slide = ({ photo }: SlideProps) => {
+const Slide = ({ photo, priority = false }: SlideProps) => {
   const img = (
-    <img
-      src={photoPath(photo.file)}
-      onError={onPhotoError}
-      onContextMenu={onPhotoContextMenu}
+    <ActivityImage
+      file={photo.file}
       alt={photo.caption}
-      draggable={false}
       className="h-full w-full object-cover"
+      priority={priority}
+      sizes="(min-width: 1024px) 56vw, 100vw"
     />
   );
 
@@ -92,8 +92,8 @@ const GlobalSection = () => {
           <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-gray-100 lg:aspect-auto">
             <div className="embla h-full" ref={emblaRef}>
               <div className="embla__container h-full cursor-grab touch-pan-x select-none active:cursor-grabbing">
-                {photos.map(photo => (
-                  <Slide key={photo.file} photo={photo} />
+                {photos.map((photo, i) => (
+                  <Slide key={photo.file} photo={photo} priority={i === 0} />
                 ))}
               </div>
             </div>

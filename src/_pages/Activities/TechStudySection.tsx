@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
 import activities from '@/data/activities.json';
-import { onPhotoContextMenu, onPhotoError, photoPath } from './utils';
+import ActivityImage from './ActivityImage';
 
 interface Track {
   title: string;
@@ -24,13 +24,15 @@ const TrackCard = ({ track, large }: TrackCardProps) => (
     )}
   >
     <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
-      <img
-        src={photoPath(track.photo)}
-        onError={onPhotoError}
-        onContextMenu={onPhotoContextMenu}
+      <ActivityImage
+        file={track.photo}
         alt={track.title}
-        draggable={false}
         className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+        sizes={
+          large
+            ? '(min-width: 1024px) 50vw, (min-width: 768px) 50vw, 100vw'
+            : '(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw'
+        }
       />
       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/10 to-transparent" />
       <div className="absolute inset-x-5 bottom-5">
