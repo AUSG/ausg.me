@@ -9,6 +9,7 @@ interface ActivityImageProps {
   file: string;
   objectPosition?: string;
   priority?: boolean;
+  loading?: 'eager' | 'lazy';
   sizes: string;
 }
 
@@ -18,6 +19,7 @@ const ActivityImage = ({
   file,
   objectPosition,
   priority = false,
+  loading,
   sizes,
 }: ActivityImageProps) => {
   const [src, setSrc] = useState(photoPath(file));
@@ -32,6 +34,7 @@ const ActivityImage = ({
       sizes={sizes}
       quality={78}
       priority={priority}
+      loading={loading}
       onError={() =>
         setSrc(current =>
           current === PHOTO_PLACEHOLDER ? current : PHOTO_PLACEHOLDER
