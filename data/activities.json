@@ -11,13 +11,13 @@
     "description": "기술은 경계가 없고, AUSG의 호기심도 마찬가지예요. \n 세계의 클라우드 커뮤니티와 소통해요.",
     "summary": "2026 AWS Summit 발표, \n Japan AWS Jr. Champions 와의 기술 교류, \n 그리고 AWS re:Invent 까지 \n \n AUSG는 국경을 넘어 글로벌 클라우드 커뮤니티와 함께 호흡합니다",
     "photos": [
-      { "file": "global00.jpg", "caption": "AWS Summit Seoul", "link": "" },
-      { "file": "global01.jpeg", "caption": "AWS Summit 발표", "link": "" },
-      { "file": "global02.jpg", "caption": "AWS Summit 발표", "link": "" },
-      { "file": "global03.png", "caption": "AUSG X JAWS", "link": "" },
+      { "file": "global00.webp", "caption": "AWS Summit Seoul", "link": "" },
+      { "file": "global01.webp", "caption": "AWS Summit 발표", "link": "" },
+      { "file": "global02.webp", "caption": "AWS Summit 발표", "link": "" },
+      { "file": "global03.webp", "caption": "AUSG X JAWS", "link": "" },
       { "file": "global04.jpeg", "caption": "AUSG X JAWS", "link": "" },
-      { "file": "global05.JPG", "caption": "AWS re:Invent", "link": "" },
-      { "file": "global06.jpg", "caption": "AWS re:Invent", "link": "" }
+      { "file": "global05.webp", "caption": "AWS re:Invent", "link": "" },
+      { "file": "global06.webp", "caption": "AWS re:Invent", "link": "" }
     ]
   },
   "techStudy": {
@@ -69,15 +69,15 @@
     "title": "함께 모이고, 함께 떠나는",
     "description": "새 기수의 첫 만남부터 멤버들끼리 떠나는 해외 여행까지 \n AUSG의 진짜 모습은 화면 너머의 순간들에 담겨 있어요",
     "photos": [
-      { "file": "activity01.jpeg", "caption": "9기 첫 OT" },
-      { "file": "activity02.png", "caption": "AWS Community Day", "objectPosition": "bottom" },
-      { "file": "activity03.png", "caption": "겨울 스키 보드 원정대" },
-      { "file": "activity04.jpg", "caption": "낭만의 몽골 여행" },
-      { "file": "activity05.png", "caption": "이집트 여행", "objectPosition": "bottom" },
-      { "file": "activity06.jpg", "caption": "클라이밍 웜업" },
+      { "file": "activity01.webp", "caption": "9기 첫 OT" },
+      { "file": "activity02.webp", "caption": "AWS Community Day", "objectPosition": "bottom" },
+      { "file": "activity03.webp", "caption": "겨울 스키 보드 원정대" },
+      { "file": "activity04.webp", "caption": "낭만의 몽골 여행" },
+      { "file": "activity05.webp", "caption": "이집트 여행", "objectPosition": "bottom" },
+      { "file": "activity06.webp", "caption": "클라이밍 웜업" },
       { "file": "activity07.jpg", "caption": "등산 웜업" },
       { "file": "activity08.jpg", "caption": "제주도 웜업" },
-      { "file": "activity09.png", "caption": "연말파티" }
+      { "file": "activity09.webp", "caption": "연말파티" }
     ]
   },
   "coffeechat": {
