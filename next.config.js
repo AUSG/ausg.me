@@ -6,15 +6,10 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: '/activities',
-        destination: '/',
-        permanent: true,
-      },
-      {
         source: '/publicbigchat',
         destination: '/',
         permanent: true,
-      },
+      }
     ];
   },
   output: 'standalone',
