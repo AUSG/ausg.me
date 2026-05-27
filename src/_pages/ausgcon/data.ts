@@ -23,7 +23,7 @@ export const ausgconCards: AusgconCard[] = [
     year: '2024',
     title: '2024 AUSGCON',
     meta: ['2024.09.21', 'AWS 센터필드'],
-    imageSrc: '/images/ausgcon/ausgcon-2024.png',
+    imageSrc: '/images/ausgcon/ausgcon-2024.webp',
     imageWidth: 1000,
     imageHeight: 500,
     eventPageUrl: 'https://2024.ausg.me/',

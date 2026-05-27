@@ -12,16 +12,18 @@ interface Photo {
 
 interface SlideProps {
   priority?: boolean;
+  loading?: 'eager' | 'lazy';
   photo: Photo;
 }
 
-const Slide = ({ photo, priority = false }: SlideProps) => {
+const Slide = ({ photo, priority = false, loading }: SlideProps) => {
   const img = (
     <ActivityImage
       file={photo.file}
       alt={photo.caption}
       className="h-full w-full object-cover"
       priority={priority}
+      loading={loading}
       sizes="(min-width: 1024px) 56vw, 100vw"
     />
   );
@@ -93,7 +95,12 @@ const GlobalSection = () => {
             <div className="embla h-full" ref={emblaRef}>
               <div className="embla__container h-full cursor-grab touch-pan-x select-none active:cursor-grabbing">
                 {photos.map((photo, i) => (
-                  <Slide key={photo.file} photo={photo} priority={i === 0} />
+                  <Slide
+                    key={photo.file}
+                    photo={photo}
+                    priority={i === 0}
+                    loading={i === 0 ? undefined : 'eager'}
+                  />
                 ))}
               </div>
             </div>
