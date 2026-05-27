@@ -3,7 +3,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 
 import activities from '@/data/activities.json';
 import { usePrevNextButtons } from '../hooks/usePrevNextButton';
-import { onPhotoContextMenu, onPhotoError, photoPath } from './utils';
+import ActivityImage from './ActivityImage';
 
 const AUTOPLAY_INTERVAL = 4000;
 
@@ -76,19 +76,17 @@ const WarmUpSection = () => {
             {photos.map((photo, i) => (
               <div className="embla__slide" key={photo.file}>
                 <figure className="flex flex-col">
-                  <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-white/10">
-                    <img
-                      src={photoPath(photo.file)}
-                      onError={onPhotoError}
-                      onContextMenu={onPhotoContextMenu}
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-white/10">
+                    <ActivityImage
+                      file={photo.file}
                       alt={photo.caption}
-                      draggable={false}
                       className="h-full w-full object-cover"
-                      style={
+                      objectPosition={
                         'objectPosition' in photo
-                          ? { objectPosition: photo.objectPosition }
+                          ? photo.objectPosition
                           : undefined
                       }
+                      sizes="(min-width: 1024px) 38vw, (min-width: 768px) 50vw, 80vw"
                     />
                   </div>
                   <figcaption className="mt-3 flex items-baseline justify-between gap-3 text-white/80">
