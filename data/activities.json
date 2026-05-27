@@ -70,7 +70,7 @@
     "description": "새 기수의 첫 만남부터 멤버들끼리 떠나는 해외 여행까지 \n AUSG의 진짜 모습은 화면 너머의 순간들에 담겨 있어요",
     "photos": [
       { "file": "activity01.jpeg", "caption": "9기 첫 OT" },
-      { "file": "activity02.JPG", "caption": "AWS Community Day", "objectPosition": "bottom" },
+      { "file": "activity02.png", "caption": "AWS Community Day", "objectPosition": "bottom" },
       { "file": "activity03.png", "caption": "겨울 스키 보드 원정대" },
       { "file": "activity04.jpg", "caption": "낭만의 몽골 여행" },
       { "file": "activity05.png", "caption": "이집트 여행", "objectPosition": "bottom" },
@@ -94,7 +94,7 @@
       { "photo": "crew06.jpg" },
       { "photo": "crew07.jpg" },
       { "photo": "crew08.jpg" },
-      { "photo": "crew09.jpg" }
+      { "photo": "crew09.jpeg" }
     ]
   }
 }
