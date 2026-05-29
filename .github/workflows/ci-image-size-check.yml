@@ -1,0 +1,85 @@
+name: Image Size Check
+
+on:
+  pull_request:
+    paths:
+      - 'public/**/*.jpg'
+      - 'public/**/*.jpeg'
+      - 'public/**/*.png'
+      - 'public/**/*.JPG'
+      - 'public/**/*.PNG'
+      - 'public/**/*.gif'
+      - 'public/**/*.webp'
+
+jobs:
+  check:
+    name: Check Image Size
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Find large images
+        id: find
+        run: |
+          THRESHOLD=307200  # 300KB in bytes
+
+          # PR에서 추가/수정된 파일만 대상
+          CHANGED=$(git diff --name-only --diff-filter=AM origin/${{ github.base_ref }}...HEAD)
+
+          LARGE_FILES=""
+          while IFS= read -r file; do
+            [[ "$file" =~ \.(jpg|jpeg|png|JPG|PNG|gif|webp)$ ]] || continue
+            [ -f "$file" ] || continue
+            size=$(stat -c%s "$file")
+            if [ "$size" -ge "$THRESHOLD" ]; then
+              size_kb=$((size / 1024))
+              LARGE_FILES="${LARGE_FILES}\n| \`${file}\` | ${size_kb}KB |"
+            fi
+          done <<< "$CHANGED"
+
+          if [ -n "$LARGE_FILES" ]; then
+            echo "found=true" >> $GITHUB_OUTPUT
+            {
+              echo "table<<EOF"
+              printf "%b" "$LARGE_FILES"
+              echo "EOF"
+            } >> $GITHUB_OUTPUT
+          else
+            echo "found=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Comment on PR
+        if: steps.find.outputs.found == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const table = `${{ steps.find.outputs.table }}`;
+            const body = [
+              '## ⚠️ 300KB 초과 이미지 감지',
+              '',
+              '다음 이미지 파일이 300KB를 초과합니다. WebP 변환 또는 리사이즈를 권장합니다.',
+              '',
+              '| 파일 | 크기 |',
+              '|------|------|',
+              table,
+              '',
+              '**권장 조치:**',
+              '- WebP 변환 (quality 80~85): `cwebp -q 85 input.jpg -o output.webp`',
+              '- 또는 리사이즈 후 재압축: `magick input.jpg -resize 1600x1600> -quality 82 output.jpg`',
+              '',
+              '**원본 보관:**',
+              '변환 전 원본은 `archived/originals/` 하위에 동일한 경로 구조로 보관해 주세요.',
+              '예) `public/people/foo.jpg` → `archived/originals/people/foo.jpg`',
+              '',
+              '> 강제 사항은 아닙니다. 단, 큰 이미지는 페이지 로딩 속도에 영향을 줄 수 있습니다.',
+            ].join('\n');
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body,
+            });
