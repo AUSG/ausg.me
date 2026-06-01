@@ -38,7 +38,7 @@ npm run dev
 
 ## Deploy
 
-현재 [Fly.io](https://fly.io)의 AUSG Organization에 배포되어 있습니다.
+현재 Vercel의 AUSG Organization에 배포되어 있습니다.
 
 main 브랜치에 코드 변경사항이 푸쉬되면 Github Action에 의해 자동으로 배포됩니다.
 <br />
