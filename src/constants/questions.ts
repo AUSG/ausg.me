@@ -26,7 +26,7 @@ const RECRUIT_QUESTIONS: Question[] = [
   {
     title: '현재 모집 중인가요?',
     description:
-      '<p>현재 <b>AUSG 9기를 모집</b> 중이에요. 홈페이지 및 인스타그램 @ausg.awskrug를 통해 자세한 정보를 확인해 주세요!</p>',
+      '<p>현재 <b>AUSG 10기를 모집</b> 중이에요. 홈페이지 및 인스타그램 @ausg.awskrug를 통해 자세한 정보를 확인해 주세요!</p>',
     isHidden: isClosed,
     order: 1,
   },
@@ -46,7 +46,7 @@ const RECRUIT_QUESTIONS: Question[] = [
     order: 3,
   },
   {
-    title: 'AUSG 9기 활동 기간은 얼마나 되나요?',
+    title: 'AUSG 10기 활동 기간은 얼마나 되나요?',
     description:
       '<p>필수 활동 기간은 <b>1년</b>입니다. 이후에는 자율로 참여 가능합니다 😁</p>',
     isHidden: isClosed,
