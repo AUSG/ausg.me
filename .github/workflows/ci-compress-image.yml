@@ -9,6 +9,9 @@ on:
       - public/activities/*.jpg
       - public/activities/*.jpeg
       - public/activities/*.png
+      - public/images/**/*.jpg
+      - public/images/**/*.jpeg
+      - public/images/**/*.png
 
 jobs:
   ci:
@@ -22,4 +25,4 @@ jobs:
         uses: calibreapp/image-actions@main
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
-          ignorePaths: "public/icons/**,public/images/**,public/*"
+          ignorePaths: "public/icons/**,public/*"
