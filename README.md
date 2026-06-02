@@ -7,7 +7,7 @@
   <h3 align="center">2022-homepage</h3>
 
   <p align="center">
-    2022년 AUSG 홈페이지 리뉴얼 프로젝트
+    AUSG 공식 홈페이지
     <br />
     <br />
     <a href="https://ausg.me"><strong>AUSG 홈페이지 바로가기 »</strong></a>
@@ -81,6 +81,13 @@ AUSG 구성원들은 [People 페이지](https://ausg.me/people)에 사진과 함
 
 이미 등록된 정보를 수정하고 싶다면 data/people.json 의 JSON 객체를 수정하면 되고, 사진을 변경하고 싶다면 public/people 경로에 동일한 파일명으로 기존 사진을 덮어씌우면 됩니다.
 다른 사람의 정보를 수정하지 않도록 주의해 주세요.
+
+## Credits
+
+이 사이트의 초석을 세운 개발자들에게 감사를 전합니다. 2022년 AUSG 홈페이지 리뉴얼 프로젝트를 시작하고 지금의 모습이 있기까지 기반을 다진 분들입니다.
+
+- **김은수 ([@eunsukimme](https://github.com/eunsukimme))** — 프론트엔드 개발자
+- **배진수 ([@naru200](https://github.com/naru200))** — 소프트웨어 엔지니어
 
 ## Contact
 
