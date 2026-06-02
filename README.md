@@ -16,7 +16,7 @@
 
 ## Overview
 
-<img src="https://user-images.githubusercontent.com/52230505/188212131-ba29a491-826a-4022-a48c-65d53e295ac8.png" width="600">
+<img src="public/images/readme-overview.png" width="600">
 
 ## Development
 
