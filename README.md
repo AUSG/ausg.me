@@ -4,7 +4,7 @@
     <img src="public/images/logo-color.svg" alt="Logo" width="400">
   </a>
 
-  <h3 align="center">homepage</h3>
+  <h3 align="center">ausg.me</h3>
 
   <p align="center">
     AUSG 공식 홈페이지
@@ -20,7 +20,7 @@
 
 ## Development
 
-homepage 프로젝트는 [Next.js](https://nextjs.org/)와 [Typescript](https://www.typescriptlang.org/), [TailwindCSS](https://tailwindcss.com/) 로 만들어졌습니다.
+ausg.me 프로젝트는 [Next.js](https://nextjs.org/)와 [Typescript](https://www.typescriptlang.org/), [TailwindCSS](https://tailwindcss.com/) 로 만들어졌습니다.
 
 패키지 매니저는 최신 버전의 [NPM](https://npmjs.com) 을 사용합니다.
 
