@@ -38,7 +38,7 @@ jobs:
             size=$(stat -c%s "$file")
             if [ "$size" -ge "$THRESHOLD" ]; then
               size_kb=$((size / 1024))
-              LARGE_FILES="${LARGE_FILES}\n| \`${file}\` | ${size_kb}KB |"
+              LARGE_FILES="${LARGE_FILES}| \`${file}\` | ${size_kb}KB |"$'\n'
             fi
           done <<< "$CHANGED"
 
@@ -46,7 +46,7 @@ jobs:
             echo "found=true" >> $GITHUB_OUTPUT
             {
               echo "table<<EOF"
-              printf "%b" "$LARGE_FILES"
+              printf "%s" "$LARGE_FILES"
               echo "EOF"
             } >> $GITHUB_OUTPUT
           else
