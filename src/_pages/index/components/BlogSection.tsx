@@ -8,9 +8,14 @@ export default function BlogSection() {
         </h1>
         <section className="space-evenly mt-6 flex flex-col gap-[16px] md:flex-row xl:mt-12 xl:gap-[48px]">
           <div className="flex basis-[50%] flex-col">
-            <span className="pb-4 text-[20px] font-bold text-white  md:text-2xl">
+            <a
+              href="https://www.youtube.com/playlist?list=PLzE5CrlMM0CDLVzxgir4Kbj7oPBD4VUvC"
+              target="_blank"
+              rel="noreferrer"
+              className="w-fit pb-4 text-[20px] font-bold text-white hover:underline md:text-2xl"
+            >
               BigChat 발표영상 플레이리스트
-            </span>
+            </a>
 
             {/* ref for dynamic youtube iframe sizing : https://stackoverflow.com/a/54924505/8556340 */}
             <div className="relative mx-auto h-0 w-full pb-[56.25%]">
@@ -26,9 +31,14 @@ export default function BlogSection() {
             </div>
           </div>
           <div className="flex basis-[50%] flex-col">
-            <span className="pb-4 text-[20px] font-bold text-white  md:text-2xl">
+            <a
+              href="https://www.youtube.com/playlist?list=PLzE5CrlMM0CC2zMxggs4GasLICq5dKDqW"
+              target="_blank"
+              rel="noreferrer"
+              className="w-fit pb-4 text-[20px] font-bold text-white hover:underline md:text-2xl"
+            >
               AUSGCON 발표영상 플레이리스트
-            </span>
+            </a>
 
             <div className="relative mx-auto h-0 w-full pb-[56.25%]">
               <iframe
