@@ -16,7 +16,7 @@
 
 ## Overview
 
-<img src="public/images/readme-overview.png" width="600">
+<img src="docs/assets/readme-overview.png" width="600">
 
 ## Development
 
@@ -88,10 +88,10 @@ AUSG 구성원들은 [People 페이지](https://ausg.me/people)에 사진과 함
 
 <p align="center">
   <a href="https://github.com/eunsukimme">
-    <img src="public/images/credits/eunsukimme.png" width="80" alt="eunsukimme"/>
+    <img src="https://github.com/eunsukimme.png" width="80" alt="eunsukimme"/>
   </a>
   <a href="https://github.com/naru200">
-    <img src="public/images/credits/naru200.png" width="80" alt="naru200"/>
+    <img src="https://github.com/naru200.png" width="80" alt="naru200"/>
   </a>
 </p>
 
