@@ -4,7 +4,7 @@
     <img src="public/images/logo-color.svg" alt="Logo" width="400">
   </a>
 
-  <h3 align="center">2022-homepage</h3>
+  <h3 align="center">homepage</h3>
 
   <p align="center">
     AUSG 공식 홈페이지
@@ -86,8 +86,14 @@ AUSG 구성원들은 [People 페이지](https://ausg.me/people)에 사진과 함
 
 이 사이트의 초석을 세운 개발자들에게 감사를 전합니다. 2022년 AUSG 홈페이지 리뉴얼 프로젝트를 시작하고 지금의 모습이 있기까지 기반을 다진 분들입니다.
 
-- **김은수 ([@eunsukimme](https://github.com/eunsukimme))** — 프론트엔드 개발자
-- **배진수 ([@naru200](https://github.com/naru200))** — 소프트웨어 엔지니어
+<p align="center">
+  <a href="https://github.com/eunsukimme">
+    <img src="public/images/credits/eunsukimme.png" width="80" alt="eunsukimme"/>
+  </a>
+  <a href="https://github.com/naru200">
+    <img src="public/images/credits/naru200.png" width="80" alt="naru200"/>
+  </a>
+</p>
 
 ## Contact
 
