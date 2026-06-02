@@ -20,7 +20,7 @@
 
 ## Development
 
-2022-homepage 프로젝트는 [Next.js](https://nextjs.org/)와 [Typescript](https://www.typescriptlang.org/), [TailwindCSS](https://tailwindcss.com/) 로 만들어졌습니다.
+homepage 프로젝트는 [Next.js](https://nextjs.org/)와 [Typescript](https://www.typescriptlang.org/), [TailwindCSS](https://tailwindcss.com/) 로 만들어졌습니다.
 
 패키지 매니저는 최신 버전의 [NPM](https://npmjs.com) 을 사용합니다.
 
