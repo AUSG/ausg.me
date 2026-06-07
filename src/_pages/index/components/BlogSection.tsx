@@ -1,3 +1,5 @@
+import ArrowRightIcon from 'public/icons/arrow_right.svg';
+
 export default function BlogSection() {
   return (
     <div className="bg-primary">
@@ -8,14 +10,20 @@ export default function BlogSection() {
         </h1>
         <section className="space-evenly mt-6 flex flex-col gap-[16px] md:flex-row xl:mt-12 xl:gap-[48px]">
           <div className="flex basis-[50%] flex-col">
-            <a
-              href="https://www.youtube.com/playlist?list=PLzE5CrlMM0CDLVzxgir4Kbj7oPBD4VUvC"
-              target="_blank"
-              rel="noreferrer"
-              className="w-fit pb-4 text-[20px] font-bold text-white hover:underline md:text-2xl"
-            >
-              BigChat 발표영상 플레이리스트
-            </a>
+            <div className="flex items-center justify-between gap-3 pb-4">
+              <span className="min-w-0 text-[20px] font-bold text-white md:text-2xl">
+                BigChat 발표영상 플레이리스트
+              </span>
+              <a
+                href="https://www.youtube.com/playlist?list=PLzE5CrlMM0CDLVzxgir4Kbj7oPBD4VUvC"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-white/90"
+              >
+                전체 영상 보기
+                <ArrowRightIcon className="h-4 w-4 fill-primary" />
+              </a>
+            </div>
 
             {/* ref for dynamic youtube iframe sizing : https://stackoverflow.com/a/54924505/8556340 */}
             <div className="relative mx-auto h-0 w-full pb-[56.25%]">
@@ -31,14 +39,20 @@ export default function BlogSection() {
             </div>
           </div>
           <div className="flex basis-[50%] flex-col">
-            <a
-              href="https://www.youtube.com/playlist?list=PLzE5CrlMM0CC2zMxggs4GasLICq5dKDqW"
-              target="_blank"
-              rel="noreferrer"
-              className="w-fit pb-4 text-[20px] font-bold text-white hover:underline md:text-2xl"
-            >
-              AUSGCON 발표영상 플레이리스트
-            </a>
+            <div className="flex items-center justify-between gap-3 pb-4">
+              <span className="min-w-0 text-[20px] font-bold text-white md:text-2xl">
+                AUSGCON 발표영상 플레이리스트
+              </span>
+              <a
+                href="https://www.youtube.com/playlist?list=PLzE5CrlMM0CC2zMxggs4GasLICq5dKDqW"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-white/90"
+              >
+                전체 영상 보기
+                <ArrowRightIcon className="h-4 w-4 fill-primary" />
+              </a>
+            </div>
 
             <div className="relative mx-auto h-0 w-full pb-[56.25%]">
               <iframe
