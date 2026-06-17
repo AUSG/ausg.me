@@ -10,6 +10,7 @@ import YoutubeIcon from '@/public/icons/youtube.svg';
 import ArrowRight from '@/public/icons/arrow_right.svg';
 import Close from '@/public/icons/close.svg';
 import clsx from 'clsx';
+import { getRecruitmentStatus } from '@/src/utils/check-status';
 
 interface HeaderProps {
   theme?: 'white' | 'colored';
@@ -18,6 +19,8 @@ interface HeaderProps {
 export default function Header({ theme = 'white' }: HeaderProps) {
   const [showSidemenu, setShowSidemenu] = useState(false);
   const closeSidemenu = useCallback(() => setShowSidemenu(false), []);
+
+  const { isApplyPeriod } = getRecruitmentStatus();
 
   const fillColor = useMemo(() => {
     if (theme === 'white') return 'fill-primary';
@@ -83,7 +86,7 @@ export default function Header({ theme = 'white' }: HeaderProps) {
               BIGCHAT
             </a>
           </Link>
-          {/* {isApplyPeriod && (
+          {isApplyPeriod && (
             <Link href="/apply">
               <a
                 className={clsx(
@@ -91,10 +94,10 @@ export default function Header({ theme = 'white' }: HeaderProps) {
                   'mr-4 hidden items-center p-3 font-bold lg:flex'
                 )}
               >
-                Recruit
+                Apply
               </a>
             </Link>
-          )} */}
+          )}
           <Link href="/ausgcon">
             <a
               className={clsx(
@@ -201,16 +204,16 @@ export default function Header({ theme = 'white' }: HeaderProps) {
                 <ArrowRight width="36" height="36" fill="white" />
               </a>
             </Link>
-            {/* {isApplyPeriod && (
+            {isApplyPeriod && (
               <Link href="/apply">
                 <a className="flex items-center">
                   <span className="mr-[8px] text-[24px] font-bold text-white">
-                    Recruit
+                    Apply
                   </span>
                   <ArrowRight width="36" height="36" fill="white" />
                 </a>
               </Link>
-            )} */}
+            )}
             <Link href="/ausgcon">
               <a className="flex items-center">
                 <span className="mr-[8px] text-[24px] font-bold text-white">
