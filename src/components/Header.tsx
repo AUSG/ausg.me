@@ -66,6 +66,18 @@ export default function Header({ theme = 'white' }: HeaderProps) {
               )}
             </a>
           </Link>
+          {isApplyPeriod && (
+            <Link href="/apply">
+              <a
+                className={clsx(
+                  theme === 'white' ? 'text-primary' : 'text-white',
+                  'mr-6 hidden items-center p-3 font-bold lg:flex'
+                )}
+              >
+                Apply
+              </a>
+            </Link>
+          )}
           <Link href="/people">
             <a
               className={clsx(
@@ -86,18 +98,6 @@ export default function Header({ theme = 'white' }: HeaderProps) {
               BIGCHAT
             </a>
           </Link>
-          {isApplyPeriod && (
-            <Link href="/apply">
-              <a
-                className={clsx(
-                  theme === 'white' ? 'text-primary' : 'text-white',
-                  'mr-4 hidden items-center p-3 font-bold lg:flex'
-                )}
-              >
-                Apply
-              </a>
-            </Link>
-          )}
           <Link href="/ausgcon">
             <a
               className={clsx(
@@ -188,6 +188,16 @@ export default function Header({ theme = 'white' }: HeaderProps) {
             ))}
           </div>
           <nav className="mt-[50px] flex flex-col gap-4">
+            {isApplyPeriod && (
+              <Link href="/apply">
+                <a className="flex items-center">
+                  <span className="mr-[8px] text-[24px] font-bold text-white">
+                    Apply
+                  </span>
+                  <ArrowRight width="36" height="36" fill="white" />
+                </a>
+              </Link>
+            )}
             <Link href="/people">
               <a className="flex items-center">
                 <span className="mr-[8px] text-[24px] font-bold text-white">
@@ -204,16 +214,6 @@ export default function Header({ theme = 'white' }: HeaderProps) {
                 <ArrowRight width="36" height="36" fill="white" />
               </a>
             </Link>
-            {isApplyPeriod && (
-              <Link href="/apply">
-                <a className="flex items-center">
-                  <span className="mr-[8px] text-[24px] font-bold text-white">
-                    Apply
-                  </span>
-                  <ArrowRight width="36" height="36" fill="white" />
-                </a>
-              </Link>
-            )}
             <Link href="/ausgcon">
               <a className="flex items-center">
                 <span className="mr-[8px] text-[24px] font-bold text-white">
