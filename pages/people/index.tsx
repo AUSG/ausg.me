@@ -6,27 +6,11 @@ import ScrollNavigation from '@/src/_pages/people/ScrollNavigation';
 import IntroCard from '@/src/_pages/people/IntroCard';
 import { getPeopleData } from '@/data/people';
 import { VISIBLE_PEOPLE_YEARS_ORDER } from '@/src/lib/config';
+import { createSeededRandom, shuffle } from '@/src/utils/shuffle';
 
-const shuffle = (array: any[], randomNumber: number) => {
-  let currentIndex = array.length;
-  let randomIndex;
-
-  while (currentIndex !== 0) {
-    randomIndex = Math.floor(randomNumber * currentIndex);
-    currentIndex -= 1;
-
-    // eslint-disable-next-line no-param-reassign
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
-    ];
-  }
-
-  return array;
-};
-
-const People = ({ randomNumber }: { randomNumber: number }) => {
+const People = ({ seed }: { seed: number }) => {
   const peopleData = getPeopleData();
+  const random = createSeededRandom(seed);
 
   return (
     <>
@@ -47,7 +31,7 @@ const People = ({ randomNumber }: { randomNumber: number }) => {
                 <div className="mb-6 mt-8 grid grid-cols-1 gap-y-4 px-5 lg:mb-[60px] lg:mt-20 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-12 lg:px-8">
                   {shuffle(
                     peopleData.people.filter(({ year }) => year === tab),
-                    randomNumber
+                    random
                   ).map(person => (
                     <IntroCard key={person.name_en} {...person} />
                   ))}
@@ -60,10 +44,10 @@ const People = ({ randomNumber }: { randomNumber: number }) => {
   );
 };
 
-// 왜 굳이 랜덤 넘버를 서버에서 생성해서 props로 넘겨주는가?
+// 왜 굳이 시드를 서버에서 생성해서 props로 넘겨주는가?
 // => 이렇게 안하면 Server에서 랜덤으로 배치한 UI와 Client에서 랜덤으로 배치한 UI가 서로 달라서 hydration이 실패하기 때문
 export const getServerSideProps = async () => ({
-  props: { randomNumber: Math.random() },
+  props: { seed: Math.floor(Math.random() * 2 ** 32) },
 });
 
 export default People;
