@@ -6,6 +6,7 @@ import ArrowRightIcon from '@/public/icons/arrow_right.svg';
 import YoutubeIcon from '@/public/icons/youtube.svg';
 import videoData from '@/data/videos.json';
 import Header from '@/src/components/Header';
+import { shuffle } from '@/src/utils/shuffle';
 import type { AusgconCard } from './data';
 import { ausgconCards } from './data';
 
@@ -19,7 +20,7 @@ const youtubeUrl = 'https://www.youtube.com/channel/UCaN1L9bj7pCuv1PiKzx-2rQ';
 const visibleVideoCount = 4;
 
 const getRandomVideos = (videos: VideoItem[], count: number) =>
-  [...videos].sort(() => Math.random() - 0.5).slice(0, count);
+  shuffle(videos).slice(0, count);
 
 const getEventLink = (card: AusgconCard) => {
   if (card.eventPageUrl) {

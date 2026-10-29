@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import QUOTES from '@/src/constants/quotes';
+import { shuffle } from '@/src/utils/shuffle';
 import QuoteCard from './QuoteCard';
 
 const INITIAL_COUNT = 6;
@@ -20,7 +21,7 @@ export default function MemberSection() {
   const [shuffled, setShuffled] = useState(QUOTES.slice(0, INITIAL_COUNT));
 
   useEffect(() => {
-    setShuffled([...QUOTES].sort(() => Math.random() - 0.5));
+    setShuffled(shuffle(QUOTES));
   }, []);
 
   const displayed = showAll ? shuffled : shuffled.slice(0, INITIAL_COUNT);
